@@ -1,0 +1,61 @@
+<header
+    id="id-home-header"
+    [class]="layout.headerClass"
+    [style]="{ height: layout.headerHeight, backgroundColor: layout.headerBgColor }">
+    <div class="container d-flex justify-content-between">
+        <div class="_logo">
+            <p>9ay.<span class="text-warning">com</span></p>
+        </div>
+        <div class="fajc mx-3">
+            <ul class="m-0 p-0 d-flex _ul">
+                <!-- link item -->
+                <ng-container *ngFor="let item of linkData">
+                    <li
+                        (click)="clickScroll(item.ID)"
+                        data-aos="fade-left"
+                        data-aos-duration="1000"
+                        class="nav-li p-2">
+                        <div
+                            class="_bg-h position-absolute"
+                            [style]="{ backgroundColor: layout.headerBgColor }"></div>
+                        <div
+                            [style]="{ backgroundColor: layout.headerBgColor }"
+                            class="_bg-w position-absolute"></div>
+                        <a class="_nav-a">{{ item.title }}</a>
+                    </li>
+                </ng-container>
+                <!-- dropdown menu -->
+                <li
+                    #dropdown="bs-dropdown"
+                    dropdown
+                    (mouseenter)="dropdown.show()"
+                    (mouseleave)="dropdown.hide()"
+                    #dropdownMenu
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                    class="nav-li p-2">
+                    <div
+                        class="_bg-h position-absolute"
+                        [style]="{ backgroundColor: layout.headerBgColor }"></div>
+                    <div
+                        [style]="{ backgroundColor: layout.headerBgColor }"
+                        class="_bg-w position-absolute"></div>
+                    <a dropdownToggle class="_nav-a dropdown-toggle">選單</a>
+                    <!-- dropdown list -->
+                    <ul
+                        [style]="{ backgroundColor: layout.headerBgColor }"
+                        *dropdownMenu
+                        class="dropdown-menu"
+                        role="menu"
+                        aria-labelledby="button-animated">
+                        <li role="menuitem">
+                            <a class="dropdown-item">Action</a>
+                            <a class="dropdown-item">Action</a>
+                            <a class="dropdown-item">Action</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

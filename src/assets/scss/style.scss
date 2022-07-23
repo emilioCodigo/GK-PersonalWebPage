@@ -1,0 +1,13 @@
+@import '/node_modules/bootstrap/scss/bootstrap';
+@import 'c.class';
+@import 'c.variable';
+//
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+body {
+    font-size: 16px;
+}

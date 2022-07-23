@@ -1,0 +1,17 @@
+export enum ColorEnum {
+    blue = '#0d6efd',
+    indigo = '#6610f2',
+    purple = '#6f42c1',
+    pink = '#d63384',
+    red = '#dc3545',
+    orange = '#fd7e14',
+    yellow = '#ffc107',
+    green = '#198754',
+    teal = '#20c997',
+    cyan = '#0dcaf0',
+    steamBg = '#161920',
+    steamLink = '#00aff4',
+    steamDeepBlue = '#1f232e',
+    steamGreen = '#9fc908',
+    dark = '#212529',
+}
