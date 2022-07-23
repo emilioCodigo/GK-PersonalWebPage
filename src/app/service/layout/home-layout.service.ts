@@ -32,7 +32,7 @@ export class HomeLayoutService {
 }
 
 const defaultHomeLayout: iHomeLayout = {
-    headerHeight: '88px',
+    headerHeight: '44px',
     headerBgColor: ColorEnum.steamBg,
-    section1MarginTop: '88px',
+    section1MarginTop: '44px',
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeAboutComponent } from './home-about.component';
+import { HomeTwoColorComponent } from './home-two-color.component';
 
-describe('HomeAboutComponent', () => {
-  let component: HomeAboutComponent;
-  let fixture: ComponentFixture<HomeAboutComponent>;
+describe('HomeTwoColorComponent', () => {
+  let component: HomeTwoColorComponent;
+  let fixture: ComponentFixture<HomeTwoColorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeAboutComponent ]
+      declarations: [ HomeTwoColorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeAboutComponent);
+    fixture = TestBed.createComponent(HomeTwoColorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

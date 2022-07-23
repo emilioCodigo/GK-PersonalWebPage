@@ -1,24 +1,51 @@
 <div class="container my-5">
-    <!--  -->
-    <div class="item-box wow bounceIn">
-        <div class="fax-box">
-            <i class="fa-solid fa-mobile-retro"></i>
-        </div>
-        <h2>RWD網站建置</h2>
-    </div>
-    <!--  -->
-    <div class="item-box wow bounceIn">
-        <div class="fax-box">
-            <i class="fa-solid fa-envelopes-bulk"></i>
-        </div>
-        <h2>EDM設計</h2>
-    </div>
-    <!--  -->
-    <div class="item-box wow bounceIn">
-        <div class="fax-box">
-            <i class="fa-solid fa-display"></i>
-        </div>
-        <h2>一頁式網頁設計</h2>
-    </div>
-    <!--  -->
+    <swiper [config]="config">
+        <ng-template swiperSlide class="d-flex justify-content-center">
+            <div [style]="{}" appHeaderIntroWowItem class="item-box wow bounceIn">
+                <img src="assets/image/logo/angular_logo.png" alt="" />
+                <h5>Angular</h5>
+            </div>
+        </ng-template>
+        <ng-template swiperSlide class="d-flex justify-content-center">
+            <div [style]="{}" appHeaderIntroWowItem class="item-box wow bounceIn">
+                <img src="assets/image/logo/spring_logo.png" alt="" />
+                <h5>SpringBoot</h5>
+            </div>
+        </ng-template>
+        <ng-template swiperSlide class="d-flex justify-content-center">
+            <div [style]="{}" appHeaderIntroWowItem class="item-box wow bounceIn">
+                <img src="assets/image/logo/vscode_logo.png" alt="" />
+                <h5>VS Code</h5>
+            </div>
+        </ng-template>
+        <ng-template swiperSlide class="d-flex justify-content-center">
+            <div [style]="{}" appHeaderIntroWowItem class="item-box wow bounceIn">
+                <img src="assets/image/logo/node_logo.png" alt="" />
+                <h5>Node.js</h5>
+            </div>
+        </ng-template>
+        <ng-template swiperSlide class="d-flex justify-content-center">
+            <div [style]="{}" appHeaderIntroWowItem class="item-box wow bounceIn">
+                <img src="assets/image/logo/fl_logo.png" alt="" />
+                <h5>FL Studio</h5>
+            </div>
+        </ng-template>
+    </swiper>
 </div>
+<!-- <div class="item-box wow bounceIn">
+    <div class="fax-box">
+        <i class="fa-solid fa-mobile-retro"></i>
+    </div>
+</div>
+<div class="item-box wow bounceIn">
+    <div class="fax-box">
+        <i class="fa-solid fa-display"></i>
+    </div>
+    <h5>一頁式網頁設計</h5>
+</div>
+<div class="item-box wow bounceIn">
+    <div class="fax-box">
+        <i class="fa-solid fa-envelopes-bulk"></i>
+    </div>
+    <h5>EDM設計</h5>
+</div> -->

@@ -3,8 +3,10 @@
     [class]="layout.headerClass"
     [style]="{ height: layout.headerHeight, backgroundColor: layout.headerBgColor }">
     <div class="container d-flex justify-content-between">
-        <div class="_logo">
-            <p>9ay.<span class="text-warning">com</span></p>
+        <div (click)="toZeroAndZero()" class="_logo">
+            <a>
+                <p class="m-0 pointer">HexZhou.<span class="text-warning">idv</span></p>
+            </a>
         </div>
         <div class="fajc mx-3">
             <ul class="m-0 p-0 d-flex _ul">

@@ -1,22 +1,16 @@
-<app-home-header></app-home-header>
+<app-home-header [layout]="layout"></app-home-header>
 <div>
     <section
         id="id-home-intro"
         class="mh-100vh bg-dark"
         [style]="{ paddingTop: layout.section1MarginTop }">
-        <article id="article-intro">
-            <h1 data-wow-duration="1s" class="p-5 wow fadeInLeft">
-                數位廣告行銷<br /><span class="fs-5">&nbsp; Internet Ads</span>
-            </h1>
-        </article>
+        <article></article>
         <app-home-intro></app-home-intro>
     </section>
-    <section
-        class="mh-100vh bg-steam-deep-blue"
-        id="id-home-about"
-        [style]="{ paddingTop: layout.section1MarginTop }">
-        <app-home-about></app-home-about>
+    <section class="mh-100vh bg-steam-deep-blue" id="id-home-two-color">
+        <app-home-two-color [layout]="layout"></app-home-two-color>
     </section>
+
     <section
         id="id-home-skill"
         class="mh-100vh bg-warning"

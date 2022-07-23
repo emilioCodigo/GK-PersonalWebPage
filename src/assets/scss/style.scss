@@ -1,7 +1,9 @@
 @import '/node_modules/bootstrap/scss/bootstrap';
+@import '/node_modules/swiper/swiper.scss';
 @import 'c.class';
 @import 'c.variable';
 //
+
 ul {
     list-style-type: none;
 }
@@ -9,5 +11,5 @@ a {
     text-decoration: none;
 }
 body {
-    font-size: 16px;
+    font-size: 14px;
 }

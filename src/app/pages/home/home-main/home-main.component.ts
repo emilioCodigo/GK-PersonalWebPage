@@ -22,7 +22,7 @@ export class HomeMainComponent implements OnInit, AfterViewInit {
     ngOnInit(): void {}
     ngAfterViewInit(): void {
         anime({
-            targets: '#article-intro',
+            targets: 'article',
             width: ['0%', '100%'],
             duration: 1000,
             easing: 'linear',

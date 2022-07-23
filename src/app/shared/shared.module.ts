@@ -5,9 +5,11 @@ import { ContentModule } from './content/content.module'
 import { DirectivesModule } from './directives/directives.module'
 import { MatModule } from './mat.module'
 import { PipeModule } from './pipe/pipe.module'
+import { SwiperModule } from 'swiper/angular'
+
 @NgModule({
     declarations: [],
-    imports: [MatModule, PipeModule, ContentModule, NgPipesModule, DirectivesModule, CommonModule],
-    exports: [MatModule, PipeModule, ContentModule, DirectivesModule, NgPipesModule],
+    imports: [SwiperModule, CommonModule],
+    exports: [SwiperModule, MatModule, PipeModule, ContentModule, DirectivesModule, NgPipesModule],
 })
 export class SharedModule {}

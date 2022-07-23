@@ -12,7 +12,7 @@
 article {
     display: flex;
     flex-direction: column;
-    font-size: 3.5rem;
+    font-size: 3rem;
     > h1,
     h2,
     h3 {
@@ -28,7 +28,7 @@ article::before {
     background-color: rgba($color: #ffffff, $alpha: 0.6);
 }
 #id-home-intro {
-    background-image: url('/assets/image/ck3/1-musk.png');
+    background-image: url('/assets/image/bg/sbpk.png');
     background-repeat: no-repeat;
     background-size: cover;
     article {
