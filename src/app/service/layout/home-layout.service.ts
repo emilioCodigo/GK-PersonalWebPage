@@ -13,6 +13,7 @@ export class HomeLayoutService {
     }
     setHomeLayout(val: Partial<iHomeLayout>): void {
         const temp = { ...this.HomeLayoutSubject.getValue(), ...val }
+        console.log(temp)
         this.HomeLayoutSubject.next(temp)
     }
     constructor() {
@@ -26,10 +27,12 @@ export class HomeLayoutService {
     }
     _checkValue() {
         const scrollTop = document.documentElement.scrollTop
+        const dfHeaderHeight = Number(defaultHomeLayout.headerHeight?.toString().replace('px', ''))
     }
 }
 
 const defaultHomeLayout: iHomeLayout = {
     headerHeight: '88px',
     headerBgColor: ColorEnum.steamBg,
+    section1MarginTop: '88px',
 }

@@ -6,10 +6,18 @@
 .mh-50vh {
     min-height: 50vh;
 }
+> section {
+    position: relative;
+}
 article {
     display: flex;
     flex-direction: column;
     font-size: 3.5rem;
+    > h1,
+    h2,
+    h3 {
+        width: fit-content;
+    }
 }
 article::after,
 article::before {
@@ -18,4 +26,12 @@ article::before {
     width: 100%;
     height: 1px;
     background-color: rgba($color: #ffffff, $alpha: 0.6);
+}
+#id-home-intro {
+    background-image: url('/assets/image/ck3/1-musk.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    article {
+        background-color: rgba($color: #000000, $alpha: 0.6);
+    }
 }

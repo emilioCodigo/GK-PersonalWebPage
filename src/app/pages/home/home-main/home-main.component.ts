@@ -24,7 +24,7 @@ export class HomeMainComponent implements OnInit, AfterViewInit {
         anime({
             targets: '#article-intro',
             width: ['0%', '100%'],
-            duration: 800,
+            duration: 1000,
             easing: 'linear',
         })
     }
