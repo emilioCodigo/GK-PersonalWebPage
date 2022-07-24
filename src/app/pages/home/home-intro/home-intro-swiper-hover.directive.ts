@@ -1,10 +1,10 @@
-import anime from 'animejs'
 import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core'
+import anime from 'animejs'
 
 @Directive({
-    selector: '[appHeaderIntroWowItem]',
+    selector: '[appHomeIntroSwiperHover]',
 })
-export class HeaderIntroWowItemDirective {
+export class HomeIntroSwiperHoverDirective {
     @HostListener('mouseenter') onMouseEnter = () => {
         this.r2.addClass(this.el.nativeElement, '_hover_change_item_color')
     }
@@ -13,17 +13,16 @@ export class HeaderIntroWowItemDirective {
     }
     constructor(private el: ElementRef, private r2: Renderer2) {
         this.r2.addClass(this.el.nativeElement, '_anime-header-hover-item')
-        anime({
-            // borderRadius: function () {
-            //     return ['50%', '5%']
-            // },
-            rotate: function () {
-                return [1, 0]
-            },
-            targets: '._anime-header-hover-item',
-            direction: 'alternate',
-            duration: 450,
-            loop: true,
-        })
+        setTimeout(() => {
+            anime({
+                rotate: function () {
+                    return [1, 0]
+                },
+                targets: '._anime-header-hover-item',
+                direction: 'alternate',
+                duration: 450,
+                loop: true,
+            })
+        }, 0)
     }
 }

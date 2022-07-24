@@ -21,9 +21,9 @@ export class HomeHeaderComponent implements OnInit {
     r2 = inject(Renderer2)
     @Input() layout!: iHomeLayout
     linkData: iLinkData[] = [
-        { title: '首頁', ID: 'id-home-intro' },
+        { title: '介紹', ID: 'id-home-intro' },
         { title: '嗜好', ID: 'id-home-two-color' },
-        { title: '聯絡', ID: 'id-home-skill' },
+        { title: '遊戲推薦', ID: 'id-home-skill' },
     ]
     constructor() {
         aos.init()
