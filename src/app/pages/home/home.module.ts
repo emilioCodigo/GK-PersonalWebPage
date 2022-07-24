@@ -9,7 +9,8 @@ import { HomeIntroSwiperHoverDirective } from './home-intro/home-intro-swiper-ho
 import { HomeIntroComponent } from './home-intro/home-intro.component'
 import { HomeMainComponent } from './home-main/home-main.component'
 import { HomeTwoColorComponent } from './home-two-color/home-two-color.component';
-import { HomeChartComponent } from './home-chart/home-chart.component'
+import { HomeChartComponent } from './home-chart/home-chart.component';
+import { HomeIntroRotateDirective } from './home-intro/home-intro-rotate.directive'
 const routes: Routes = [{ path: '', component: HomeMainComponent }]
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ const routes: Routes = [{ path: '', component: HomeMainComponent }]
         HomeIntroSwiperHoverDirective,
         HomeIntroLinkIconHoverDirective,
         HomeChartComponent,
+        HomeIntroRotateDirective,
     ],
     imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
     exports: [RouterModule],

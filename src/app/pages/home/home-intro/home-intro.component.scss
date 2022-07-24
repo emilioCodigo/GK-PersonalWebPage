@@ -1,5 +1,7 @@
 @import '/src/assets/scss/c.variable';
-
+:host {
+    overflow: hidden;
+}
 .item-box {
     max-width: 500px;
     max-height: 200px;
@@ -47,4 +49,6 @@
         height: 2.5rem;
         aspect-ratio: 1/1;
     }
+}
+.rt-box-1 {
 }

@@ -13,7 +13,7 @@ export class HomeIntroLinkIconHoverDirective {
             },
             targets: '.homeLinkIconHoverClass',
             direction: 'normal',
-            duration: 1000,
+            duration: 6000,
         })
     }
     @HostListener('mouseleave') onMouseLeave = () => {
