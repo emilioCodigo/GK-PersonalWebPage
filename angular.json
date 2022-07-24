@@ -37,7 +37,8 @@
                         "scripts": [
                             "node_modules/wowjs/dist/wow.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
-                            "node_modules/aos/dist/aos.js"
+                            "node_modules/aos/dist/aos.js",
+                            "node_modules/chart.js/dist/Chart.min.js"
                         ]
                     },
                     "configurations": {
@@ -83,7 +84,7 @@
                             "disableHostCheck": true,
                             "open": true,
                             "port": 9487,
-                            "host": "0.0.0.0",
+                            "host": "192.168.0.13",
                             "hmr": true,
                             "browserTarget": "個人部落格:build:development"
                         }
@@ -115,7 +116,8 @@
                             "node_modules/ani",
                             "node_modules/wowjs/dist/wow.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.min.js",
-                            "node_modules/aos/dist/aos.js"
+                            "node_modules/aos/dist/aos.js",
+                            "node_modules/chart.js/dist/Chart.min.js"
                         ]
                     }
                 }

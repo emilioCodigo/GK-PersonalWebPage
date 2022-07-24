@@ -8,19 +8,20 @@ import { HomeIntroLinkIconHoverDirective } from './home-intro/home-intro-link-ic
 import { HomeIntroSwiperHoverDirective } from './home-intro/home-intro-swiper-hover.directive'
 import { HomeIntroComponent } from './home-intro/home-intro.component'
 import { HomeMainComponent } from './home-main/home-main.component'
-import { HomeSkillComponent } from './home-skill/home-skill.component'
-import { HomeTwoColorComponent } from './home-two-color/home-two-color.component'
+import { HomeTwoColorComponent } from './home-two-color/home-two-color.component';
+import { HomeChartComponent } from './home-chart/home-chart.component'
 const routes: Routes = [{ path: '', component: HomeMainComponent }]
 @NgModule({
     declarations: [
         HomeMainComponent,
         HomeHeaderComponent,
         HomeFooterComponent,
-        HomeSkillComponent,
+
         HomeIntroComponent,
         HomeTwoColorComponent,
         HomeIntroSwiperHoverDirective,
         HomeIntroLinkIconHoverDirective,
+        HomeChartComponent,
     ],
     imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
     exports: [RouterModule],

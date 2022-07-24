@@ -22,7 +22,7 @@ export class HomeIntroComponent implements OnInit, AfterViewInit {
         {
             imgPath: 'angular_logo.png',
             title: 'Angular 14',
-            desc: '手頭上大部分前端開發使用的框架。<br>2022年4月使用至今',
+            desc: '手上大部分前端開發使用的框架。<br>2022年4月使用至今',
         },
         {
             imgPath: 'node_logo.png',
@@ -32,7 +32,7 @@ export class HomeIntroComponent implements OnInit, AfterViewInit {
         {
             imgPath: 'spring_logo.png',
             title: 'SpringBoot',
-            desc: '工作上大前輩指導我的後端語言。<br>2022年7月使用至今',
+            desc: '正在自學的後端框架。<br>2022年7月使用至今',
         },
         {
             imgPath: 'fl_logo.png',

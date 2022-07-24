@@ -1,0 +1,12 @@
+<div class="container wow bounceIn" [style]="{ paddingTop: layout.section1MarginTop }">
+    <div class="chart">
+        <canvas
+            #pie
+            baseChart
+            [data]="pieChartData"
+            [type]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins">
+        </canvas>
+    </div>
+</div>
