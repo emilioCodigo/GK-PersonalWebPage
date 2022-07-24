@@ -8,6 +8,13 @@ SwiperCore.use([Autoplay, Scrollbar, Pagination])
     styleUrls: ['./home-intro.component.scss'],
 })
 export class HomeIntroComponent implements OnInit {
+    displayItems: iDisplayItem[] = [
+        { imgPath: 'angular_logo.png', title: 'Angular' },
+        { imgPath: 'node_logo.png', title: 'Node.js' },
+        { imgPath: 'spring_logo.png', title: 'SpringBoot' },
+        { imgPath: 'fl_logo.png', title: 'FL Studio' },
+        { imgPath: 'vscode_logo.png', title: 'VS Code' },
+    ]
     config: SwiperOptions = {
         autoplay: {
             delay: 900,
@@ -41,4 +48,8 @@ export class HomeIntroComponent implements OnInit {
     }
 
     ngOnInit(): void {}
+}
+interface iDisplayItem {
+    title: string
+    imgPath: string
 }
