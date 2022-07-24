@@ -1,10 +1,15 @@
 <div class="container my-5">
-    <swiper [config]="config">
+    <swiper #Swiper [config]="config">
         <ng-container *ngFor="let item of displayItems">
             <ng-template swiperSlide class="d-flex justify-content-center">
                 <div [style]="{}" appHeaderIntroWowItem class="item-box wow bounceIn">
-                    <img [src]="'assets/image/logo/' + item.imgPath" alt="" />
-                    <h5>{{ item.title }}</h5>
+                    <div class="img-box fajc">
+                        <img [src]="'assets/image/logo/' + item.imgPath" alt="" />
+                    </div>
+                    <div class="fajc flex-column me-3">
+                        <h5>{{ item.title }}</h5>
+                        <p class="text-center" [innerHTML]="item.desc"></p>
+                    </div>
                 </div>
             </ng-template>
         </ng-container>

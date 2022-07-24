@@ -9,7 +9,7 @@ import { iHomeLayout } from '@app/model/layout.model'
 export class HomeTwoColorComponent implements OnInit {
     part1: iTwoColorContext = {
         title: '經營管理遊戲愛好者',
-        text: '我是一名Paradox公司的死忠粉絲<br>瘋狂地熱愛在電腦中建造城市、規劃交通、管理國務內政、對外貿易。<br>具有高度自由性、創造性、模組化與活躍社群的遊戲是我的最佳選擇。',
+        text: '我是一名Paradox公司的死忠粉絲<br>當兵放假時總是瘋狂地在電腦中建造城市、規劃交通、管理國務內政、對外貿易。<br>具有高度自由性、創造性、模組化與活躍社群的遊戲是我的熱愛所在。',
     }
     part2: iTwoColorContext = {
         title: '電子音樂迷',

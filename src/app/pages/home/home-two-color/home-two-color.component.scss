@@ -6,9 +6,9 @@
     grid-template-rows: 50% 50%;
     height: 100vh;
     @include bk_max($xxl) {
-        height: 200vh;
+        height: 100vh;
         grid-template-columns: 1fr;
-        grid-template-rows: 25% 25% 25% 25%;
+        grid-template-rows: 50% 50%;
         div:nth-child(1) {
             order: 1;
         }
@@ -46,6 +46,11 @@
                 min-height: 100%;
             }
         }
+    }
+}
+.color-1-box {
+    @include bk_max($xxl) {
+        display: none;
     }
 }
 .color-2-box {

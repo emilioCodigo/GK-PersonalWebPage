@@ -1,23 +1,23 @@
 @import '/src/assets/scss/c.variable';
 
 .item-box {
-    background-color: rgba($color: #000000, $alpha: 0.6);
+    max-width: 500px;
+    max-height: 200px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $steam-bg, $alpha: 0.95);
     aspect-ratio: 1/1;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     border: 0.5px solid rgba($color: #fff, $alpha: 0.6);
     box-shadow: 0 0 4px 1px rgba($color: #ffffff, $alpha: 0.3);
     img {
         width: 90px;
-        margin-bottom: 2rem;
     }
-
-    h5 {
-        position: absolute;
-        bottom: 0;
-        margin: 2rem;
-    }
+}
+._hover_change_item_color {
+    transition: all 0.5s;
+    color: #000;
+    background-color: rgba($color: #fff, $alpha: 0.95);
+    border: 0.5px solid rgba($color: #000, $alpha: 1);
 }
