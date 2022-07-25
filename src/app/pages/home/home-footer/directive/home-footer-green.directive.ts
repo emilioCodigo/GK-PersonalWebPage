@@ -7,12 +7,13 @@ import { ColorEnum } from './../../../../constant/enum/color.enum'
     selector: '[appHomeFooterGreen]',
 })
 export class HomeFooterGreenDirective implements OnInit {
+    colorArray = [['#f00', ColorEnum['orange']]]
     isDoing = false
     leaveEventQueue: Array<() => void> = []
 
     // 父滑鼠移動事件輸入
-    lastMousePercent = '100%'
-    _mousePercent = '100%'
+    lastMousePercent = '50vw'
+    _mousePercent = '50vw'
     get mousePercent() {
         return this._mousePercent
     }
@@ -27,9 +28,9 @@ export class HomeFooterGreenDirective implements OnInit {
                 this.isDoing = true
                 setTimeout(() => {
                     anime({
-                        backgroundColor: [ColorEnum['red'], ColorEnum['orange']],
+                        backgroundColor: this.colorArray,
                         width: function () {
-                            return [self.lastMousePercent, '100vw']
+                            return [self.lastMousePercent, '50vw']
                         },
                         targets: '._anime-footer-green',
                         direction: 'normal',
@@ -38,7 +39,7 @@ export class HomeFooterGreenDirective implements OnInit {
                     }).finished.then(() => {
                         this.isDoing = false
                         this.leaveEventQueue.shift()
-                        self.lastMousePercent = '100%'
+                        self.lastMousePercent = '50vw'
                     })
                 }, 0)
             }
@@ -55,7 +56,7 @@ export class HomeFooterGreenDirective implements OnInit {
             setTimeout(() => {
                 this._mousePercent = val
                 anime({
-                    backgroundColor: [ColorEnum['red'], ColorEnum['orange']],
+                    backgroundColor: this.colorArray,
                     width: function () {
                         return [self.lastMousePercent, self.mousePercent]
                     },
@@ -82,7 +83,7 @@ export class HomeFooterGreenDirective implements OnInit {
     isMouseAnimeEnable = false
     animeStream$ = new Subject()
     @HostListener('animationend', ['$event']) onAnimationEnd(evt: AnimationEvent) {
-        if (evt.animationName === 'fadeIn') {
+        if (evt.elapsedTime > 0 && evt.animationName === 'fadeIn') {
             this.animeStream$.next('next')
         }
     }
@@ -90,36 +91,34 @@ export class HomeFooterGreenDirective implements OnInit {
     constructor(private el: ElementRef, private r2: Renderer2) {
         this.animeStream$
             .asObservable()
-            .pipe(take(2))
+
             .subscribe(() => {
                 this.counter++
-                if (this.counter === 2) {
-                    this.r2.addClass(this.el.nativeElement, '_anime-footer-green')
-                    this.isDoing = true
-                    setTimeout(() => {
-                        anime({
-                            backgroundColor: [ColorEnum['red'], ColorEnum['orange']],
-                            width: function () {
-                                return ['0vw', '100vw']
-                            },
-                            targets: '._anime-footer-green',
-                            direction: 'normal',
-                            duration: 1500,
-                            easing: 'linear',
-                        }).finished.then(() => {
-                            // 如果 尚有離開動畫 執行動畫
-                            // 沒有動畫 直接設定 動畫套件狀態 閒置中
-                            if (this.leaveEventQueue.length > 0) {
-                                this.leaveEventQueue[0]()
-                            } else {
-                                this.isDoing = false
-                            }
-                            this.lastMousePercent = '100%'
-                        })
-                        this.animeStream$.complete()
+
+                this.r2.addClass(this.el.nativeElement, '_anime-footer-green')
+                this.isDoing = true
+                setTimeout(() => {
+                    anime({
+                        backgroundColor: this.colorArray,
+                        width: function () {
+                            return ['0vw', '50vw']
+                        },
+                        targets: '._anime-footer-green',
+                        direction: 'normal',
+                        duration: 1500,
+                        easing: 'linear',
+                    }).finished.then(() => {
                         this.isMouseAnimeEnable = true
-                    }, 0)
-                }
+                        // 如果 尚有離開動畫 執行動畫
+                        // 沒有動畫 直接設定 動畫套件狀態 閒置中
+                        if (this.leaveEventQueue.length > 0) {
+                            this.leaveEventQueue[0]()
+                        } else {
+                            this.isDoing = false
+                        }
+                        this.lastMousePercent = '50vw'
+                    })
+                }, 0)
             })
     }
     ngOnInit(): void {}

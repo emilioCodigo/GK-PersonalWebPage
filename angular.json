@@ -47,7 +47,7 @@
                                 {
                                     "type": "initial",
                                     "maximumWarning": "500kb",
-                                    "maximumError": "1mb"
+                                    "maximumError": "8mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -84,7 +84,7 @@
                             "disableHostCheck": true,
                             "open": true,
                             "port": 9487,
-                            "host": "192.168.1.124",
+                            "host": "192.168.0.13",
                             "hmr": true,
                             "browserTarget": "HEXZHOUWEB:build:development"
                         }

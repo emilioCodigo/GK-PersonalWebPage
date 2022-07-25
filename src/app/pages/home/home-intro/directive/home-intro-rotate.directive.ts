@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, OnDestroy, Renderer2 } from '@angular/core'
+import { Directive, ElementRef, HostListener, Input, OnDestroy, Renderer2 } from '@angular/core'
 import anime from 'animejs'
 import { Subject, take } from 'rxjs'
 
@@ -6,10 +6,13 @@ import { Subject, take } from 'rxjs'
     selector: '[appHomeIntroRotate]',
 })
 export class HomeIntroRotateDirective {
+    @Input() rotateValue = 0
     counter = 0
     eventStream$ = new Subject()
-    @HostListener('animationend') onAniEnd() {
-        this.eventStream$.next('next')
+    @HostListener('animationend', ['$event']) onAniEnd(evt: AnimationEvent) {
+        if (evt.elapsedTime > 0) {
+            this.eventStream$.next('next')
+        }
     }
     constructor(private el: ElementRef, private r2: Renderer2) {
         this.eventStream$
@@ -17,24 +20,26 @@ export class HomeIntroRotateDirective {
             .pipe(take(2))
             .subscribe(() => {
                 this.counter++
-                if (this.counter == 2) {
-                    this.r2.addClass(this.el.nativeElement, '_anime-rotate')
-                    setTimeout(() => {
-                        anime({
-                            rotate: () => {
-                                return [0, anime.random(-5, 5)]
-                            },
-                            targets: '._anime-rotate',
-                            direction: 'normal',
-                            // direction: 'alternate',
-                            duration: 1500,
-                            // autoplay: false,
-                            // loop: true,
-                        })
-                        this.r2.removeClass(this.el.nativeElement, '_anime-rotate')
-                    }, 100)
-                    this.eventStream$.complete()
-                }
+
+                this.r2.addClass(this.el.nativeElement, '_anime-rotate' + this.rotateValue)
+                setTimeout(() => {
+                    anime({
+                        rotate: () => {
+                            return [0, this.rotateValue]
+                        },
+                        targets: '._anime-rotate' + this.rotateValue,
+                        direction: 'normal',
+                        // direction: 'alternate',
+                        duration: 1500,
+                        // autoplay: false,
+                        // loop: true,
+                    }).finished.then(() => {
+                        this.r2.removeClass(
+                            this.el.nativeElement,
+                            '_anime-rotate' + this.rotateValue
+                        )
+                    })
+                }, 0)
             })
     }
 }

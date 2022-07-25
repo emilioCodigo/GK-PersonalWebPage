@@ -1,10 +1,19 @@
-import { BsDropdownConfig } from 'ngx-bootstrap/dropdown'
-import { Component, inject, Input, OnInit, Renderer2, ViewChild } from '@angular/core'
+import {
+    AfterViewInit,
+    Component,
+    ElementRef,
+    HostListener,
+    inject,
+    Input,
+    OnInit,
+    Renderer2,
+    ViewChild,
+} from '@angular/core'
 import { iHomeLayout } from '@app/model/layout.model'
 import * as aos from 'aos'
+import { BsDropdownConfig } from 'ngx-bootstrap/dropdown'
 import { NgwWowService } from 'ngx-wow'
 import { isNull } from 'underscore'
-import { HomeLayoutService } from './../../../service/layout/home-layout.service'
 interface iLinkData {
     title: string
     ID: string
@@ -16,18 +25,33 @@ interface iLinkData {
     templateUrl: './home-header.component.html',
     styleUrls: ['./home-header.component.scss'],
 })
-export class HomeHeaderComponent implements OnInit {
-    @ViewChild('dropdownMenu') ddMenu!: HTMLLIElement
+export class HomeHeaderComponent implements OnInit, AfterViewInit {
+    isOpenSideMenuRWD = false
+    @ViewChild('rwd_menu') rwd_menu!: ElementRef
+    @ViewChild('hamburger') hamburger!: ElementRef
+    @HostListener('window:click', ['$event']) onWindowsClick() {
+        this.isOpenSideMenuRWD = false
+    }
+
     r2 = inject(Renderer2)
     @Input() layout!: iHomeLayout
     linkData: iLinkData[] = [
         { title: '關於我', ID: 'id-home-intro' },
         { title: '興趣標籤', ID: 'id-home-two-color' },
-        { title: '個人圖表', ID: 'id-home-skill' },
+        { title: '圖表分析', ID: 'id-home-skill' },
     ]
     constructor() {
         aos.init()
         inject(NgwWowService).init()
+    }
+    ngAfterViewInit(): void {
+        this.rwd_menu.nativeElement.addEventListener('click', (e: PointerEvent) => {
+            e.stopPropagation()
+        })
+        this.hamburger.nativeElement.addEventListener('click', (e: PointerEvent) => {
+            e.stopPropagation()
+            this.isOpenSideMenuRWD = true
+        })
     }
     ngOnInit(): void {}
 

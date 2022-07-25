@@ -39,6 +39,7 @@ export class HomeFooterComponent implements OnInit {
         this.mousePercent = '離開'
     }
     imgList: string[] = [
+        'ngx-light-box',
         'AnimeJS',
         'footer_aosjs',
         'footer_bootstrap',
@@ -46,6 +47,7 @@ export class HomeFooterComponent implements OnInit {
         'footer_chart',
     ]
     config: SwiperOptions = {
+        autoplay: { delay: 2000, disableOnInteraction: false },
         mousewheel: true,
         loop: true,
         breakpoints: {

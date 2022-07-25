@@ -2,7 +2,7 @@
     id="id-home-header"
     [class]="layout.headerClass"
     [style]="{ height: layout.headerHeight, backgroundColor: layout.headerBgColor }">
-    <div class="container d-flex justify-content-between">
+    <div class="container d-flex justify-content-lg-between justify-content-center">
         <div (click)="toZeroAndZero()" class="_logo">
             <a>
                 <p class="m-0 pointer">HexZhou.<span class="text-warning">idv</span></p>
@@ -28,6 +28,7 @@
                 </ng-container>
                 <!-- dropdown menu -->
                 <li
+                    (click)="clickScroll('id-home-footer')"
                     #dropdown="bs-dropdown"
                     dropdown
                     (mouseenter)="dropdown.show()"
@@ -59,5 +60,31 @@
                 </li>
             </ul>
         </div>
+        <div #hamburger class="fajc hamburger-box"><i class="fa-solid fa-bars fs-3"></i></div>
+    </div>
+    <div
+        [style]="{ left: isOpenSideMenuRWD ? '0vw' : '-100vw' }"
+        #rwd_menu
+        class="rwd_menu d-flex d-lg-none">
+        <div (click)="toZeroAndZero()" class="_logo">
+            <a>
+                <p class="m-0 pointer">HexZhou.<span class="text-warning">idv</span></p>
+            </a>
+        </div>
+        <ul class="_rwd_ul">
+            <ng-container *ngFor="let item of linkData">
+                <li (click)="clickScroll(item.ID)">
+                    <span>{{ item.title }}</span>
+                </li>
+            </ng-container>
+            <li (click)="clickScroll('id-home-footer')">
+                <span>個人作品</span>
+            </li>
+            <ul>
+                <li>谷歌翻譯聊天室</li>
+                <li>不和諧獨裁機器人</li>
+                <li>蒸氣個人頁</li>
+            </ul>
+        </ul>
     </div>
 </header>

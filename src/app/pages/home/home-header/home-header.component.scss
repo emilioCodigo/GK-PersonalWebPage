@@ -9,7 +9,7 @@ header {
     position: fixed;
     z-index: 100;
     top: 0;
-    width: 100%;
+    width: 100vw;
     max-width: 100vw;
     transition: position, box-shadow 0.1s;
 }
@@ -67,5 +67,60 @@ $border-px: 1px;
     &:focus {
         color: $yellow !important;
         background: none;
+    }
+}
+.hamburger-box {
+    @include bk_max($lg) {
+        display: flex;
+    }
+    display: none;
+    margin-left: 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: 100;
+    transition: color 0.4s;
+    &:hover,
+    &:focus {
+        color: #aaa;
+    }
+}
+.rwd_menu {
+    transition: all 0.5s;
+    box-shadow: 0 0 8px 2px rgba($color: #000000, $alpha: 0.5);
+    padding: 1rem;
+    z-index: 110;
+    position: fixed;
+    top: 0;
+    width: 66vw;
+    height: 100vh;
+    background-color: rgba($color: $steam-bg, $alpha: 1);
+    flex-direction: column;
+    ._rwd_ul {
+        padding: 0;
+        width: 100%;
+        margin-top: 16px;
+        li {
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            position: relative;
+            &:hover,
+            &:focus {
+                color: $yellow;
+                &:after {
+                    transition: all 0.5s;
+                    content: '';
+                    height: 2px;
+                    width: 100%;
+                    bottom: 0;
+                    position: absolute;
+                    background-color: $yellow;
+                }
+            }
+        }
     }
 }
