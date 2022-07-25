@@ -1,12 +1,27 @@
 <div class="_height">
-    <div class="footer-box img-box wow fadeIn">
-        <div class="logo-list-box d-flex gap-3 py-3 justify-content-center">
-            <ng-container *ngFor="let imgName of imgList">
-                <div class="img-box">
-                    <img [src]="'assets/image/footer_logo/' + imgName + '.png'" alt="" />
-                </div>
-            </ng-container>
+    <div class="footer-box img-box wow fadeIn" data-wow-duration="1s">
+        <div class="logo-list-box home_footer_swiper_global d-flex gap-3 py-3">
+            <swiper #Swiper [config]="config">
+                <ng-container *ngFor="let imgName of imgList">
+                    <ng-template swiperSlide>
+                        <div class="img-box">
+                            <img
+                                [src]="'assets/image/footer_logo/' + imgName + '.png'"
+                                alt="" /></div
+                    ></ng-template>
+                </ng-container>
+            </swiper>
+            <div
+                data-wow-duration="0.3s"
+                appHomeFooterGreen
+                [mousePercent]="mousePercent"
+                class="orange-box wow fadeIn"></div>
         </div>
-        <div appHomeFooterGreen [mousePercent]="mousePercent" class="orange-box wow fadeIn"></div>
+
+        <div>
+            <div class="text-box">
+                <span>招募中 </span>
+            </div>
+        </div>
     </div>
 </div>
