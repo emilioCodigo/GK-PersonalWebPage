@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "個人部落格": {
+        "HEXZHOUWEB": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -22,7 +22,7 @@
                         "optimization": true,
                         "buildOptimizer": true,
                         "commonChunk": true,
-                        "outputPath": "電商更新/dist",
+                        "outputPath": "HEXZHOUWEB/dist",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -78,15 +78,15 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "個人部落格:build:production"
+                            "browserTarget": "HEXZHOUWEB:build:production"
                         },
                         "development": {
                             "disableHostCheck": true,
                             "open": true,
                             "port": 9487,
-                            "host": "192.168.0.13",
+                            "host": "192.168.1.124",
                             "hmr": true,
-                            "browserTarget": "個人部落格:build:development"
+                            "browserTarget": "HEXZHOUWEB:build:development"
                         }
                     },
 
@@ -95,7 +95,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "個人部落格:build"
+                        "browserTarget": "HEXZHOUWEB:build"
                     }
                 },
                 "test": {
