@@ -1,4 +1,5 @@
 @import '/src/assets/scss/c.variable';
+
 ._height {
     height: 50vh;
 }
@@ -27,5 +28,30 @@
         position: absolute;
         z-index: 0;
         top: 0;
+    }
+}
+.text-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 800;
+    .btn {
+        width: 200px;
+    }
+    .text-orange {
+        color: $orange;
+    }
+    h5 {
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    h2 {
+        line-height: 2;
+    }
+    br {
+        @include bk_max($sm) {
+            display: none;
+        }
     }
 }

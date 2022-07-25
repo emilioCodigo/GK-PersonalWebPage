@@ -14,6 +14,10 @@ body {
     font-size: 14px;
     overflow-x: hidden;
 }
-// .home_footer_swiper_global .swiper-slide {
-//     width: auto !important;
-// }
+@font-face {
+    font-family: 'pingfang';
+    src: url('../font/PingFang-TC-Medium-2.woff') format('woff');
+}
+.pingfang {
+    font-family: 'pingfang';
+}

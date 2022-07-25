@@ -1,4 +1,5 @@
 import { Component, HostListener, inject, OnInit } from '@angular/core'
+import anime from 'animejs'
 import { NgwWowService } from 'ngx-wow'
 import SwiperCore, {
     Autoplay,
