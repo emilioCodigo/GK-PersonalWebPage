@@ -1,1 +1,12 @@
-<p>home-footer works!</p>
+<div class="_height">
+    <div class="footer-box img-box wow fadeIn">
+        <div class="logo-list-box d-flex gap-3 py-3 justify-content-center">
+            <ng-container *ngFor="let imgName of imgList">
+                <div class="img-box">
+                    <img [src]="'assets/image/footer_logo/' + imgName + '.png'" alt="" />
+                </div>
+            </ng-container>
+        </div>
+        <div appHomeFooterGreen [mousePercent]="mousePercent" class="orange-box wow fadeIn"></div>
+    </div>
+</div>

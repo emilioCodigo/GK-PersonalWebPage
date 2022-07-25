@@ -14,4 +14,5 @@ export enum ColorEnum {
     steamDeepBlue = '#1f232e',
     steamGreen = '#9fc908',
     dark = '#212529',
+    realYellow = '#ffff00',
 }

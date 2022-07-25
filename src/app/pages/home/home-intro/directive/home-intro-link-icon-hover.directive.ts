@@ -9,11 +9,11 @@ export class HomeIntroLinkIconHoverDirective {
         this.r2.addClass(this.el.nativeElement, 'homeLinkIconHoverClass')
         anime({
             rotate: function () {
-                return [0, 360]
+                return [0, 10]
             },
             targets: '.homeLinkIconHoverClass',
-            direction: 'normal',
-            duration: 6000,
+            direction: 'alternate',
+            duration: 600,
         })
     }
     @HostListener('mouseleave') onMouseLeave = () => {
