@@ -7,10 +7,13 @@ import { MatModule } from './mat.module'
 import { PipeModule } from './pipe/pipe.module'
 import { SwiperModule } from 'swiper/angular'
 import { NgChartsModule } from 'ng2-charts'
+import { NgxSpinnerModule } from 'ngx-spinner'
+
 @NgModule({
     declarations: [],
     imports: [SwiperModule, CommonModule],
     exports: [
+        NgxSpinnerModule,
         NgChartsModule,
         SwiperModule,
         MatModule,

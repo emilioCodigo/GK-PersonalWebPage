@@ -12,6 +12,7 @@ import { HomeTwoColorComponent } from './home-two-color/home-two-color.component
 import { HomeChartComponent } from './home-chart/home-chart.component'
 import { HomeIntroRotateDirective } from './home-intro/directive/home-intro-rotate.directive'
 import { HomeFooterGreenDirective } from './home-footer/directive/home-footer-green.directive'
+
 const routes: Routes = [{ path: '', component: HomeMainComponent }]
 @NgModule({
     declarations: [

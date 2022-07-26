@@ -1,12 +1,24 @@
 <div class="container wow bounceIn" [style]="{ paddingTop: layout.section1MarginTop }">
-    <div class="chart">
-        <canvas
-            #pie
-            baseChart
-            [data]="pieChartData"
-            [type]="pieChartType"
-            [options]="pieChartOptions"
-            [plugins]="pieChartPlugins">
-        </canvas>
-    </div>
+    <ng-container *ngIf="isAPIFinished; else loading">
+        <div class="chart">
+            <canvas
+                #pie
+                baseChart
+                [data]="pieChartData"
+                [type]="pieChartType"
+                [options]="pieChartOptions"
+                [plugins]="pieChartPlugins">
+            </canvas>
+        </div>
+    </ng-container>
 </div>
+<ng-template #loading>
+    <ngx-spinner
+        [bdColor]="'none'"
+        size="medium"
+        color="#fff"
+        type="triangle-skew-spin"
+        [fullScreen]="false"
+        ><p style="color: white">正在連接Steam...</p></ngx-spinner
+    >
+</ng-template>

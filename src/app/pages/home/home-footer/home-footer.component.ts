@@ -39,17 +39,19 @@ export class HomeFooterComponent implements OnInit {
         this.mousePercent = '離開'
     }
     imgList: string[] = [
+        'ngx-spin',
         'ligbox',
-        'AnimeJS',
         'footer_aosjs',
         'footer_bootstrap',
+        'AnimeJS',
         'footer_swiperjs',
         'footer_chart',
     ]
     configFooterSwiper: SwiperOptions = {
-        autoplay: { delay: 2000, disableOnInteraction: false },
+        autoplay: { delay: 1000, disableOnInteraction: false },
         mousewheel: true,
         loop: true,
+        resizeObserver: true,
         breakpoints: {
             1800: { slidesPerView: 8 },
             1400: { slidesPerView: 6 },

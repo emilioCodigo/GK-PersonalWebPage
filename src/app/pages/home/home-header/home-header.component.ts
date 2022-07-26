@@ -61,10 +61,10 @@ export class HomeHeaderComponent implements OnInit, AfterViewInit {
     clickScroll(ID: string) {
         if (!isNull(document.getElementById(ID))) {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            // document.getElementById(ID)!.scrollIntoView({ behavior: 'smooth' })
             let margin = this.layout.section1MarginTop as string
             margin = margin.replace('px', '')
             let topToY =
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 document.getElementById(ID)!.getBoundingClientRect().top +
                 window.pageYOffset -
                 Number(margin)

@@ -1,3 +1,5 @@
+import { DUMMY_steamData } from './../../../constant/dummy/steam.data'
+import { SteamPersonalService } from './../../../service/api/steam-personal.service'
 import { iHomeLayout } from '@app/model/layout.model'
 import { NgwWowService } from 'ngx-wow'
 import { AfterViewInit, Component, inject, Input, OnInit } from '@angular/core'
@@ -5,6 +7,9 @@ import { ViewChild } from '@angular/core'
 import DatalabelsPlugin from 'chartjs-plugin-datalabels'
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js'
 import { BaseChartDirective } from 'ng2-charts'
+import { concatMap, delay, firstValueFrom, map, of } from 'rxjs'
+import { iSteamGameInfo } from '@app/model/steamGame.model'
+import { NgxSpinnerService } from 'ngx-spinner'
 
 @Component({
     selector: 'app-home-chart',
@@ -12,23 +17,56 @@ import { BaseChartDirective } from 'ng2-charts'
     styleUrls: ['./home-chart.component.scss'],
 })
 export class HomeChartComponent implements OnInit, AfterViewInit {
+    isAPIFinished = false
     @Input() layout!: iHomeLayout
-    gameList: iSteamGame[] = [
-        { name: 'Cities: Skylines', hour: 638 },
-        { name: 'Team Fortress 2', hour: 462 },
-        { name: 'Grand Theft Auto V', hour: 247 },
-        { name: 'Darkest Dungeon®', hour: 258 },
-        { name: 'Monster Train', hour: 252 },
-        { name: 'Crusader Kings III', hour: 168 },
-        { name: 'Slay the Spire', hour: 163 },
-    ]
-    constructor() {
+    myGameList: iSteamGameInfo[] = []
+    constructor(private steamServ: SteamPersonalService, private spinner: NgxSpinnerService) {
+        this.spinner.show()
         inject(NgwWowService).init()
+        of(DUMMY_steamData)
+            .pipe(delay(4000 * 1))
+            .subscribe((r) => {
+                this.myGameList = r
+                this._updatePieChart()
+            })
+        // steamServ.getMyGames().subscribe(async (games) => {
+        //     const length = Math.min(5, games.length + 1)
+        //     for (let i = 0; i < length; i++) {
+        //         const appid = games[i].appid
+        //         const playTime_hour = Math.floor((games[i].playtime_forever || 0) / 60)
+        //         await firstValueFrom(steamServ.getGameInfo(appid || '')).then((gameInfo) => {
+        //             const tempGame: iSteamGameInfo = {
+        //                 appid: appid,
+        //                 playTime_hour: playTime_hour,
+        //                 gamename: gameInfo.gamename,
+        //                 storeurl: gameInfo.storeurl,
+        //                 header_image: gameInfo.header_image,
+        //             }
+        //             console.log(tempGame)
+        //             this.myGameList.push(tempGame)
+        //         })
+        //     }
+        //     this._updatePieChart()
+        // })
     }
-    ngAfterViewInit(): void {
-        this.pie.width = 200
-        this.pie.height = 200
+    _updatePieChart() {
+        this.spinner.hide()
+
+        const playTime_hourArray = this.myGameList.map((e) => e.playTime_hour || 0)
+        this.pieChartData = {
+            labels: this.myGameList.map((e) => e.gamename || ''),
+            datasets: [
+                {
+                    hoverBorderColor: '#fff',
+                    data: playTime_hourArray,
+                },
+            ],
+        }
+
+        this.isAPIFinished = true
+        this.chart?.update()
     }
+    ngAfterViewInit(): void {}
     ngOnInit(): void {}
     @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined
     @ViewChild('pie') pie!: HTMLCanvasElement
@@ -56,13 +94,11 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
         aspectRatio: 1,
     }
     pieChartData: ChartData<'pie', number[], string | string[]> = {
-        labels: this.gameList.map((e) => e.name),
-        datasets: [{ hoverBorderColor: '#fff', data: this.gameList.map((e) => e.hour) }],
+        labels: this.myGameList.map((e) => e.gamename || ''),
+        datasets: [
+            { hoverBorderColor: '#fff', data: this.myGameList.map((e) => e.playTime_hour || 0) },
+        ],
     }
     pieChartType: ChartType = 'pie'
     pieChartPlugins = [DatalabelsPlugin]
-}
-interface iSteamGame {
-    name: string
-    hour: number
 }
