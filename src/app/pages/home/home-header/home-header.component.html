@@ -28,11 +28,10 @@
                 </ng-container>
                 <!-- dropdown menu -->
                 <li
-                    (click)="clickScroll('id-home-footer')"
-                    #dropdown="bs-dropdown"
-                    dropdown
                     (mouseenter)="dropdown.show()"
                     (mouseleave)="dropdown.hide()"
+                    #dropdown="bs-dropdown"
+                    dropdown
                     #dropdownMenu
                     data-aos="fade-left"
                     data-aos-duration="1000"
@@ -43,7 +42,12 @@
                     <div
                         [style]="{ backgroundColor: layout.headerBgColor }"
                         class="_bg-w position-absolute"></div>
-                    <a dropdownToggle class="_nav-a dropdown-toggle">個人作品</a>
+                    <a
+                        (click)="clickScroll('id-home-footer')"
+                        dropdownToggle
+                        class="_nav-a dropdown-toggle"
+                        >個人作品</a
+                    >
                     <!-- dropdown list -->
                     <ul
                         [style]="{ backgroundColor: layout.headerBgColor }"

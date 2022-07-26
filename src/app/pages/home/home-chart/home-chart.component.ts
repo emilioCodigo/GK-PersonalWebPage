@@ -1,18 +1,23 @@
-import { ColorEnum } from './../../../constant/enum/color.enum'
-import { DUMMY_steamData } from './../../../constant/dummy/steam.data'
-import { SteamPersonalService } from './../../../service/api/steam-personal.service'
+import {
+    AfterViewInit,
+    Component,
+    ElementRef,
+    inject,
+    Input,
+    OnInit,
+    ViewChild,
+} from '@angular/core'
 import { iHomeLayout } from '@app/model/layout.model'
-import { NgwWowService } from 'ngx-wow'
-import { AfterViewInit, Component, ElementRef, inject, Input, OnInit } from '@angular/core'
-import { ViewChild } from '@angular/core'
-import DatalabelsPlugin from 'chartjs-plugin-datalabels'
-import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js'
-import { BaseChartDirective } from 'ng2-charts'
-import { concatMap, delay, firstValueFrom, map, of, throwError, timeout } from 'rxjs'
 import { iSteamGameInfo } from '@app/model/steamGame.model'
+import { ChartConfiguration, ChartData, ChartType } from 'chart.js'
+import DatalabelsPlugin from 'chartjs-plugin-datalabels'
+import { BaseChartDirective } from 'ng2-charts'
 import { NgxSpinnerService } from 'ngx-spinner'
-import { lstat } from 'fs'
-import { each } from 'underscore'
+import { NgwWowService } from 'ngx-wow'
+import { delay, firstValueFrom, of, throwError, timeout } from 'rxjs'
+import { DUMMY_steamData } from './../../../constant/dummy/steam.data'
+import { ColorEnum } from './../../../constant/enum/color.enum'
+import { SteamPersonalService } from './../../../service/api/steam-personal.service'
 
 @Component({
     selector: 'app-home-chart',
@@ -33,7 +38,7 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
     }
     dummyAPI() {
         of(DUMMY_steamData)
-            .pipe(delay(1000 * 0.1))
+            .pipe(delay(1000 * 4))
             .subscribe((r) => {
                 this.myGameList = r
                 this._updateCharts()
@@ -46,7 +51,7 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
                 const appid = games[i].appid
                 const playTime_hour = Math.floor((games[i].playtime_forever || 0) / 60)
                 await firstValueFrom(
-                    this.steamServ.getGameInfo(appid || '').pipe(
+                    this.steamServ.getGameInfo(appid || 0).pipe(
                         timeout({
                             each: 1000,
                             with: () => throwError(() => {}),
@@ -57,9 +62,15 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
                         const tempGame: iSteamGameInfo = {
                             appid: appid,
                             playTime_hour: playTime_hour,
-                            gamename: gameInfo.gamename,
+                            name: gameInfo.name,
                             storeurl: gameInfo.storeurl,
                             header_image: gameInfo.header_image,
+                            background: gameInfo.background,
+                            screenshots: gameInfo.screenshots,
+                            categories: gameInfo.categories,
+                            movies: gameInfo.movies,
+                            metacritic: gameInfo.metacritic,
+                            about_the_game: gameInfo.about_the_game,
                         }
                         this.myGameList.push(tempGame)
                     })
@@ -68,15 +79,12 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
             this._updateCharts()
         })
     }
+    focusGame!: iSteamGameInfo
 
     _updateCharts() {
-        console.log('update')
-        this.spinner.hide()
-
         const playTime_hourArray = this.myGameList.map((e) => e.playTime_hour || 0)
-
         this.barChartData = {
-            labels: this.myGameList.map((e) => e.gamename || ''),
+            labels: this.myGameList.map((e) => e.name || ''),
             datasets: [
                 {
                     backgroundColor: '#ddd',
@@ -87,9 +95,11 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
                 },
             ],
         }
-
+        console.log(this.myGameList)
+        this.focusGame = this.myGameList[0]
+        this.spinner.hide()
         this.isAPIFinished = true
-        this.chart2?.update()
+        // this.chart2?.update()
     }
     async loopMystWord() {
         const base = '掌握'

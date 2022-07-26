@@ -3,51 +3,35 @@
         <span class="neonRedText">{{ MystWord.join('') }}</span>
     </h1>
 </div>
-<div
-    class="container"
-    data-aos-duration="3000"
-    data-aos="fade-up"
-    [style]="{ paddingTop: layout.section1MarginTop }">
+<div class="container" [style]="{ paddingTop: layout.section1MarginTop }">
     <ng-container *ngIf="isAPIFinished; else loading">
         <div class="total-box">
-            <div #chartDiv class="chart">
-                <!-- <canvas
-                    #pie
-                    baseChart
-                    [data]="pieChartData"
-                    [type]="pieChartType"
-                    [options]="pieChartOptions"
-                    [plugins]="pieChartPlugins">
-                </canvas> -->
-                <!-- <canvas
-                    baseChart
-                    [data]="barChartData"
-                    [options]="barChartOptions"
-                    [plugins]="barChartPlugins"
-                    [type]="barChartType">
-                </canvas> -->
-            </div>
+            <ng-container *ngIf="focusGame">
+                <div
+                    data-aos-delay="2000"
+                    data-aos="flip-left"
+                    class="flex-1 w-100 h-100 overflow-hidden">
+                    <app-home-chart-board [focusGame]="focusGame"></app-home-chart-board>
+                </div>
+            </ng-container>
 
             <div class="gameList-box">
-                <!-- <perfect-scrollbar> -->
                 <drag-scroll class="home-chart-scroll">
                     <ng-container *ngFor="let game of myGameList">
-                        <div class="item_box">
+                        <div (click)="focusGame = game" class="item_box">
                             <div class="img-box">
                                 <img [src]="game.header_image" alt="" />
                             </div>
                             <div class="text-box text-truncate">
-                                <span class="">{{ game.gamename }}</span>
+                                <span class="">{{ game.name }}</span>
                             </div>
                         </div>
                     </ng-container>
                 </drag-scroll>
-                <!-- </perfect-scrollbar> -->
             </div>
         </div>
     </ng-container>
 </div>
-<!-- <div class="_bottom-nav"></div> -->
 <ng-template #loading>
     <ngx-spinner
         [bdColor]="'none'"
@@ -58,3 +42,11 @@
         ><p style="color: white">正在訪問Steam...</p></ngx-spinner
     >
 </ng-template>
+
+<ng-container *ngFor="let game of myGameList">
+    <img hidden [src]="game.header_image" alt="" />
+    <ng-container *ngFor="let pic of game.screenshots">
+        <img hidden [src]="pic.path_full" alt="" />
+    </ng-container>
+    <img hidden [src]="game.background" alt="" />
+</ng-container>

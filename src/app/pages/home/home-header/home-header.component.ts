@@ -34,9 +34,9 @@ export class HomeHeaderComponent implements OnInit, AfterViewInit {
     }
     @Input() layout!: iHomeLayout
     linkData: iLinkData[] = [
-        { title: '關於我', ID: 'id-home-intro' },
-        { title: '愛好', ID: 'id-home-two-color' },
-        { title: '圖表分析', ID: 'id-home-skill' },
+        { title: '關於站主', ID: 'id-home-intro' },
+        { title: '興趣愛好', ID: 'id-home-two-color' },
+        { title: '遊戲數據', ID: 'id-home-skill' },
     ]
     sidProjects: iSideProject[] = [
         { name: '谷歌翻譯聊天室' },

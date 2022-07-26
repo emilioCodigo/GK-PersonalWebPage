@@ -1,6 +1,6 @@
 {
     "name": "personal-web",
-    "version": "0.0.19",
+    "version": "0.0.22",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -22,6 +22,7 @@
         "@angular/platform-browser": "^14.0.0",
         "@angular/platform-browser-dynamic": "^14.0.0",
         "@angular/router": "^14.0.0",
+        "@types/jquery": "^3.5.14",
         "@types/node": "^18.0.6",
         "@types/underscore": "^1.11.4",
         "animejs": "^3.2.1",
@@ -29,6 +30,8 @@
         "bootstrap": "^5.2.0",
         "chart.js": "^3.8.0",
         "chartjs-plugin-datalabels": "^2.0.0",
+        "jquery": "^3.6.0",
+        "keen-slider": "^6.7.0",
         "ng2-charts": "^4.0.0",
         "ngx-bootstrap": "^9.0.0-RC.2",
         "ngx-drag-scroll": "^13.0.2",

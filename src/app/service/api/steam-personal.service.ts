@@ -7,13 +7,15 @@ import { Observable } from 'rxjs'
     providedIn: 'root',
 })
 export class SteamPersonalService {
-    private url = 'https://steam-game-own-server.herokuapp.com/own/76561198021631509'
-    private gameBaseUrl = 'https://steam-game-own-server.herokuapp.com/game/'
+    private rootUrl = 'https://steam-game-own-server.herokuapp.com'
+    // private rootUrl = 'http://localhost:5000'
+    private url = this.rootUrl + '/own/76561198021631509'
+    private gameBaseUrl = this.rootUrl + '/game/'
     constructor(private http: HttpClient) {}
     getMyGames() {
         return this.http.get<iSteamGameInfo[]>(this.url)
     }
-    getGameInfo(id: string) {
+    getGameInfo(id: number) {
         return this.http.get<iSteamGameInfo>(`${this.gameBaseUrl}${id}`)
     }
 }
