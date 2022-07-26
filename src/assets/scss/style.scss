@@ -22,3 +22,16 @@ body {
 .pingfang {
     // font-family: 'pingfang';
 }
+.home-chart-scroll .drag-scroll-content {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    @include bk_max($xxl) {
+        flex-direction: row !important;
+        gap: 2rem;
+        width: 100% !important;
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

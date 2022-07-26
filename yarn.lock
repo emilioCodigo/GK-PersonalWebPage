@@ -188,7 +188,7 @@
     "uuid" "8.3.2"
     "yargs" "17.4.1"
 
-"@angular/common@^14.0.0", "@angular/common@^14.0.0 || ^15.0.0", "@angular/common@>=14.0.0", "@angular/common@>=6.0.0", "@angular/common@>=9.0.0", "@angular/common@14.0.6":
+"@angular/common@^14.0.0", "@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ~13.0.0", "@angular/common@>=14.0.0", "@angular/common@>=6.0.0", "@angular/common@>=9.0.0", "@angular/common@14.0.6":
   "integrity" "sha512-AynjE7OOEfrdKmS3nu00tkf4g66cx97T6qhfaTvc3hKi45MreBcJkIMcSowF24peygvUN41htMJuq3WQLu92iQ=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.0.6.tgz"
   "version" "14.0.6"
@@ -218,7 +218,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^14.0.0", "@angular/core@^14.0.0 || ^15.0.0", "@angular/core@>=14.0.0", "@angular/core@>=6.0.0", "@angular/core@>=9.0.0", "@angular/core@14.0.6":
+"@angular/core@^14.0.0", "@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ~13.0.0", "@angular/core@>=14.0.0", "@angular/core@>=6.0.0", "@angular/core@>=9.0.0", "@angular/core@14.0.6":
   "integrity" "sha512-hyQ3s9Yrm3ejhumgAC9ENhMFmvmPlJkk1tEOjruyoiHwK4EOaDpI+GCNQIBUB1Z3B/QLMlgZeMXrULQztjSQwg=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.0.6.tgz"
   "version" "14.0.6"
@@ -5766,6 +5766,13 @@
   "integrity" "sha512-haZNif3T+tI3zKoTjNbLgmkKbcyIj/oJ4TnlcZQdOSdYEyNzAwScwUyo5LXeuwCBYyhiC5/ibSPB4Ew8vUaaGw=="
   "resolved" "https://registry.npmjs.org/ngx-bootstrap/-/ngx-bootstrap-9.0.0-RC.2.tgz"
   "version" "9.0.0-RC.2"
+  dependencies:
+    "tslib" "^2.3.0"
+
+"ngx-drag-scroll@^13.0.2":
+  "integrity" "sha512-x1Zwv/FdNOu8UxBIJiFDpKkOlfDi6c+/LVuyymBn0OhYWhZuvKcjhImPlVrLHpolGH+SEGhcFEqujV55hLkJSw=="
+  "resolved" "https://registry.npmjs.org/ngx-drag-scroll/-/ngx-drag-scroll-13.0.2.tgz"
+  "version" "13.0.2"
   dependencies:
     "tslib" "^2.3.0"
 

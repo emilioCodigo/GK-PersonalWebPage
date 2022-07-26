@@ -9,16 +9,42 @@
     data-aos="fade-up"
     [style]="{ paddingTop: layout.section1MarginTop }">
     <ng-container *ngIf="isAPIFinished; else loading">
-        <!-- <div class="chart">
-            <canvas
-                #pie
-                baseChart
-                [data]="pieChartData"
-                [type]="pieChartType"
-                [options]="pieChartOptions"
-                [plugins]="pieChartPlugins">
-            </canvas>
-        </div> -->
+        <div class="total-box">
+            <div #chartDiv class="chart">
+                <!-- <canvas
+                    #pie
+                    baseChart
+                    [data]="pieChartData"
+                    [type]="pieChartType"
+                    [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins">
+                </canvas> -->
+                <canvas
+                    baseChart
+                    [data]="barChartData"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [type]="barChartType">
+                </canvas>
+            </div>
+
+            <div class="gameList-box">
+                <!-- <perfect-scrollbar> -->
+                <drag-scroll class="home-chart-scroll">
+                    <ng-container *ngFor="let game of myGameList">
+                        <div class="item_box">
+                            <div class="img-box">
+                                <img [src]="game.header_image" alt="" />
+                            </div>
+                            <div class="text-box">
+                                <span>{{ game.gamename }}</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </drag-scroll>
+                <!-- </perfect-scrollbar> -->
+            </div>
+        </div>
     </ng-container>
 </div>
 <!-- <div class="_bottom-nav"></div> -->
@@ -29,6 +55,6 @@
         color="#fff"
         type="triangle-skew-spin"
         [fullScreen]="false"
-        ><p style="color: white">正在連接Steam...</p></ngx-spinner
+        ><p style="color: white">正在訪問Steam...</p></ngx-spinner
     >
 </ng-template>
