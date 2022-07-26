@@ -10,6 +10,7 @@ import { BaseChartDirective } from 'ng2-charts'
 import { concatMap, delay, firstValueFrom, map, of } from 'rxjs'
 import { iSteamGameInfo } from '@app/model/steamGame.model'
 import { NgxSpinnerService } from 'ngx-spinner'
+import { lstat } from 'fs'
 
 @Component({
     selector: 'app-home-chart',
@@ -17,37 +18,67 @@ import { NgxSpinnerService } from 'ngx-spinner'
     styleUrls: ['./home-chart.component.scss'],
 })
 export class HomeChartComponent implements OnInit, AfterViewInit {
+    MystWord: string[] = []
     isAPIFinished = false
     @Input() layout!: iHomeLayout
     myGameList: iSteamGameInfo[] = []
     constructor(private steamServ: SteamPersonalService, private spinner: NgxSpinnerService) {
         this.spinner.show()
         inject(NgwWowService).init()
+        this.dummyAPI()
+        this.loopMystWord()
+    }
+    dummyAPI() {
         of(DUMMY_steamData)
             .pipe(delay(4000 * 1))
             .subscribe((r) => {
                 this.myGameList = r
                 this._updatePieChart()
             })
-        // steamServ.getMyGames().subscribe(async (games) => {
-        //     const length = Math.min(5, games.length + 1)
-        //     for (let i = 0; i < length; i++) {
-        //         const appid = games[i].appid
-        //         const playTime_hour = Math.floor((games[i].playtime_forever || 0) / 60)
-        //         await firstValueFrom(steamServ.getGameInfo(appid || '')).then((gameInfo) => {
-        //             const tempGame: iSteamGameInfo = {
-        //                 appid: appid,
-        //                 playTime_hour: playTime_hour,
-        //                 gamename: gameInfo.gamename,
-        //                 storeurl: gameInfo.storeurl,
-        //                 header_image: gameInfo.header_image,
-        //             }
-        //             console.log(tempGame)
-        //             this.myGameList.push(tempGame)
-        //         })
-        //     }
-        //     this._updatePieChart()
-        // })
+    }
+    fetchAPI() {
+        this.steamServ.getMyGames().subscribe(async (games) => {
+            const length = Math.min(5, games.length + 1)
+            for (let i = 0; i < length; i++) {
+                const appid = games[i].appid
+                const playTime_hour = Math.floor((games[i].playtime_forever || 0) / 60)
+                await firstValueFrom(this.steamServ.getGameInfo(appid || '')).then((gameInfo) => {
+                    const tempGame: iSteamGameInfo = {
+                        appid: appid,
+                        playTime_hour: playTime_hour,
+                        gamename: gameInfo.gamename,
+                        storeurl: gameInfo.storeurl,
+                        header_image: gameInfo.header_image,
+                    }
+                    console.log(tempGame)
+                    this.myGameList.push(tempGame)
+                })
+            }
+            this._updatePieChart()
+        })
+    }
+    async loopMystWord() {
+        const base = '掌握'
+        const list = ['時間', '自由']
+        this.MystWord = [...base]
+        const pushWord = (w: string) => {
+            return firstValueFrom(of(this.MystWord.push(w)).pipe(delay(500)))
+        }
+        const popWord = () => {
+            return firstValueFrom(of(this.MystWord.pop()).pipe(delay(500)))
+        }
+        const AllTrue = true
+        while (true == AllTrue) {
+            for (let i = 0; i < list.length; i++) {
+                const word = list[i]
+                for (let j = 0; j < word.length; j++) {
+                    await pushWord(word[j])
+                }
+                for (let j = 0; j < word.length; j++) {
+                    await popWord()
+                }
+            }
+        }
     }
     _updatePieChart() {
         this.spinner.hide()

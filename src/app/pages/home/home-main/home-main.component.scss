@@ -41,3 +41,13 @@ article::before {
 .__bg-black {
     background-color: #000000;
 }
+#id-home-skill {
+    background-image: url('/assets/image/bg/ast-xxl.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    @include bk_max($sm) {
+        background-attachment: local;
+        background-image: url('/assets/image/bg/ast-sm.jpg');
+    }
+}

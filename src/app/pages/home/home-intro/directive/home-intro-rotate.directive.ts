@@ -24,13 +24,25 @@ export class HomeIntroRotateDirective implements OnInit {
         setTimeout(() => {
             anime({
                 rotate: () => {
-                    return [0, this.rotateValue]
+                    return [0, -10]
                 },
                 targets: '._anime-rotate' + this.rotateValue,
                 direction: 'normal',
-                duration: 3000,
+                duration: 4000,
+                easing: 'linear',
             }).finished.then(() => {
-                this.r2.removeClass(this.el.nativeElement, '_anime-rotate' + this.rotateValue)
+                anime({
+                    rotate: () => {
+                        return [-10, this.rotateValue]
+                    },
+                    targets: '._anime-rotate' + this.rotateValue,
+                    direction: 'alternate',
+                    duration: 8000,
+                    easing: 'linear',
+                    loop: true,
+                }).finished.then(() => {
+                    this.r2.removeClass(this.el.nativeElement, '_anime-rotate' + this.rotateValue)
+                })
             })
         }, 0)
     }

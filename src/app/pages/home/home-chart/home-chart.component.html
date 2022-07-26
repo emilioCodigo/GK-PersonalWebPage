@@ -1,6 +1,15 @@
-<div class="container wow bounceIn" [style]="{ paddingTop: layout.section1MarginTop }">
+<div class="_top-nav fajc">
+    <h1>
+        <span class="neonRedText">{{ MystWord.join('') }}</span>
+    </h1>
+</div>
+<div
+    class="container"
+    data-aos-duration="3000"
+    data-aos="fade-up"
+    [style]="{ paddingTop: layout.section1MarginTop }">
     <ng-container *ngIf="isAPIFinished; else loading">
-        <div class="chart">
+        <!-- <div class="chart">
             <canvas
                 #pie
                 baseChart
@@ -9,9 +18,10 @@
                 [options]="pieChartOptions"
                 [plugins]="pieChartPlugins">
             </canvas>
-        </div>
+        </div> -->
     </ng-container>
 </div>
+<!-- <div class="_bottom-nav"></div> -->
 <ng-template #loading>
     <ngx-spinner
         [bdColor]="'none'"

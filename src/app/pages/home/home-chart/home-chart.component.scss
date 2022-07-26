@@ -1,3 +1,5 @@
+@import '/src/assets/scss/c.variable';
+
 .container {
     position: relative;
     z-index: 1;
@@ -5,4 +7,28 @@
         padding: 1rem;
     }
     height: 100vh;
+    position: relative;
+}
+
+:host {
+    position: relative;
+}
+
+._top-nav {
+    position: absolute;
+    width: 100vw;
+    height: 90px;
+    background-color: #000;
+    top: 0;
+    left: 0;
+}
+.neonRedText {
+    color: #fff;
+    text-shadow: 0 0 7px $pink, 0 0 10px $pink, 0 0 21px $pink, 0 0 42px $pink, 0 0 82px $pink,
+        0 0 92px $pink, 0 0 102px $pink, 0 0 151px $pink;
+}
+.neonBlueText {
+    color: #fff;
+    text-shadow: 0 0 7px $blue, 0 0 10px $blue, 0 0 21px $blue, 0 0 42px $blue, 0 0 82px $blue,
+        0 0 92px $blue, 0 0 102px $blue, 0 0 151px $blue;
 }
