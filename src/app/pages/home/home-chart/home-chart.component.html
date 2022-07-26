@@ -19,13 +19,13 @@
                     [options]="pieChartOptions"
                     [plugins]="pieChartPlugins">
                 </canvas> -->
-                <canvas
+                <!-- <canvas
                     baseChart
                     [data]="barChartData"
                     [options]="barChartOptions"
                     [plugins]="barChartPlugins"
                     [type]="barChartType">
-                </canvas>
+                </canvas> -->
             </div>
 
             <div class="gameList-box">
@@ -36,8 +36,8 @@
                             <div class="img-box">
                                 <img [src]="game.header_image" alt="" />
                             </div>
-                            <div class="text-box">
-                                <span>{{ game.gamename }}</span>
+                            <div class="text-box text-truncate">
+                                <span class="">{{ game.gamename }}</span>
                             </div>
                         </div>
                     </ng-container>
