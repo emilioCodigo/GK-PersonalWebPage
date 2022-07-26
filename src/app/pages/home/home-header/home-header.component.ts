@@ -32,13 +32,16 @@ export class HomeHeaderComponent implements OnInit, AfterViewInit {
     @HostListener('window:click', ['$event']) onWindowsClick() {
         this.isOpenSideMenuRWD = false
     }
-
-    r2 = inject(Renderer2)
     @Input() layout!: iHomeLayout
     linkData: iLinkData[] = [
         { title: '關於我', ID: 'id-home-intro' },
-        { title: '興趣標籤', ID: 'id-home-two-color' },
+        { title: '愛好', ID: 'id-home-two-color' },
         { title: '圖表分析', ID: 'id-home-skill' },
+    ]
+    sidProjects: iSideProject[] = [
+        { name: '谷歌翻譯聊天室' },
+        { name: '不和諧機器人' },
+        { name: '蒸氣平台個人頁' },
     ]
     constructor() {
         aos.init()
@@ -58,11 +61,23 @@ export class HomeHeaderComponent implements OnInit, AfterViewInit {
     clickScroll(ID: string) {
         if (!isNull(document.getElementById(ID))) {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            document.getElementById(ID)!.scrollIntoView({ behavior: 'smooth' })
+            // document.getElementById(ID)!.scrollIntoView({ behavior: 'smooth' })
+            let margin = this.layout.section1MarginTop as string
+            margin = margin.replace('px', '')
+            let topToY =
+                document.getElementById(ID)!.getBoundingClientRect().top +
+                window.pageYOffset -
+                Number(margin)
+            topToY = topToY < 0 ? 0 : topToY
+            window.scrollTo({ top: topToY, behavior: 'smooth' })
         }
     }
     toZeroAndZero() {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         document.body.scrollIntoView({ behavior: 'smooth' })
     }
+}
+interface iSideProject {
+    name: string
+    link?: string
 }

@@ -27,7 +27,7 @@ export class HomeIntroComponent implements OnInit, AfterViewInit {
         {
             imgPath: 'node_logo.png',
             title: 'Node.js',
-            desc: '最初練習後端與處理特殊個案時用的語言，<br>如：爬蟲解析、音波分析、聊天軟體機器人<br>2021年7月使用至今',
+            desc: '處理特殊個案時用的語言，<br>如：爬蟲解析、音波分析、聊天軟體機器人<br>2021年7月使用至今',
         },
         {
             imgPath: 'spring_logo.png',

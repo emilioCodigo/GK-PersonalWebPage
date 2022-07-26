@@ -1,7 +1,7 @@
 <div class="_height">
     <div class="footer-box img-box wow fadeIn" data-wow-duration="1s">
-        <div class="logo-list-box home_footer_swiper_global d-flex gap-3 py-3">
-            <swiper #Swiper [config]="config">
+        <div class="logo-list-box d-flex">
+            <swiper #Swiper [config]="configFooterSwiper">
                 <ng-container *ngFor="let imgName of imgList">
                     <ng-template swiperSlide>
                         <div class="img-box">
@@ -25,7 +25,7 @@
                     除了在專業領域中精益求精 <br />
                     <span class="text-orange">更要不斷追求樂趣</span>
                 </h2>
-                <button data-wow-delay="2s" class="btn btn-light btn-lg wow fadeInUp">
+                <button data-wow-delay="1.4s" class="btn btn-light btn-lg wow fadeInUp">
                     進入作品集
                 </button>
             </div>

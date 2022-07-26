@@ -52,9 +52,9 @@
                         role="menu"
                         aria-labelledby="button-animated">
                         <li role="menuitem">
-                            <a class="dropdown-item">谷歌翻譯聊天室</a>
-                            <a class="dropdown-item">不和諧獨裁機器人</a>
-                            <a class="dropdown-item">蒸氣個人頁</a>
+                            <ng-container *ngFor="let item of sidProjects">
+                                <a class="dropdown-item">{{ item.name }}</a>
+                            </ng-container>
                         </li>
                     </ul>
                 </li>
@@ -81,9 +81,9 @@
                 <span>個人作品</span>
             </li>
             <ul>
-                <li>谷歌翻譯聊天室</li>
-                <li>不和諧獨裁機器人</li>
-                <li>蒸氣個人頁</li>
+                <ng-container *ngFor="let item of sidProjects">
+                    <li>{{ item.name }}</li>
+                </ng-container>
             </ul>
         </ul>
     </div>

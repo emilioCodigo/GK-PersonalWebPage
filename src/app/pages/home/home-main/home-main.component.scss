@@ -28,12 +28,14 @@ article::before {
     background-color: rgba($color: #ffffff, $alpha: 0.6);
 }
 #id-home-intro {
-    background-image: url('/assets/image/bg/sbpk3.jpg');
+    background-image: url('/assets/image/bg/xxl-earth.jpg');
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    article {
-        background-color: rgba($color: #000000, $alpha: 0.6);
+    @include bk_max($sm) {
+        background-attachment: local;
+        background-image: url('/assets/image/bg/sm-earth.jpg');
     }
 }
 .__bg-black {
