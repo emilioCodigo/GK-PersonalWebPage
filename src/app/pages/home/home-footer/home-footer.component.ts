@@ -39,6 +39,7 @@ export class HomeFooterComponent implements OnInit {
         this.mousePercent = '離開'
     }
     imgList: string[] = [
+        'keen-slider',
         'ngx-spin',
         'ligbox',
         'footer_aosjs',

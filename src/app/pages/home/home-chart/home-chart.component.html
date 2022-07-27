@@ -8,8 +8,8 @@
         <div class="total-box">
             <ng-container *ngIf="focusGame">
                 <div
-                    data-aos-delay="2000"
-                    data-aos="flip-left"
+                    data-aos-delay="500"
+                    data-aos="zoom-in"
                     class="flex-1 w-100 h-100 overflow-hidden">
                     <app-home-chart-board [focusGame]="focusGame"></app-home-chart-board>
                 </div>
@@ -21,9 +21,6 @@
                         <div (click)="focusGame = game" class="item_box">
                             <div class="img-box">
                                 <img [src]="game.header_image" alt="" />
-                            </div>
-                            <div class="text-box text-truncate">
-                                <span class="">{{ game.name }}</span>
                             </div>
                         </div>
                     </ng-container>
@@ -43,10 +40,12 @@
     >
 </ng-template>
 
-<ng-container *ngFor="let game of myGameList">
-    <img hidden [src]="game.header_image" alt="" />
-    <ng-container *ngFor="let pic of game.screenshots">
-        <img hidden [src]="pic.path_full" alt="" />
+<div hidden>
+    <ng-container *ngFor="let game of myGameList">
+        <img hidden [src]="game.header_image" alt="" />
+        <ng-container *ngFor="let pic of game.screenshots">
+            <img hidden [src]="pic.path_full" alt="" />
+        </ng-container>
+        <img hidden [src]="game.background" alt="" />
     </ng-container>
-    <img hidden [src]="game.background" alt="" />
-</ng-container>
+</div>

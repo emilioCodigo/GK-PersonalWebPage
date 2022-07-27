@@ -4,12 +4,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
-  production: false,
-  google: {
-    GA_TRACKING_ID: 'G-xxxx',
-  },
-  appVersion: '當前版本' + require('../../package.json').version,
-};
+    production: false,
+    google: {
+        GA_TRACKING_ID: 'G-N7WBQFP61M',
+    },
+    appVersion: '實驗版本' + require('../../package.json').version,
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

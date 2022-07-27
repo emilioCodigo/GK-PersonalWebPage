@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, inject, OnInit } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 import { NavigationEnd, Router } from '@angular/router'
 import { environment } from 'environments/environment'
 import { distinctUntilChanged } from 'rxjs'
@@ -13,7 +14,8 @@ declare let gtag: Function
 export class AppComponent implements OnInit {
     router = inject(Router)
     versionNumber = environment.appVersion
-    ngOnInit(): void {
+    ngOnInit(): void {}
+    constructor(private title: Title) {
         this.checkCurrentPath()
     }
     checkCurrentPath() {
@@ -27,7 +29,8 @@ export class AppComponent implements OnInit {
                 })
             )
             .subscribe((x: any) => {
-                gtag('event', 'page_view', { page_path: x.url })
+                gtag('event', '換頁', { page_path: x.url })
+                gtag('event', 'tag-version', { currentVersion: environment.appVersion })
             })
     }
 }

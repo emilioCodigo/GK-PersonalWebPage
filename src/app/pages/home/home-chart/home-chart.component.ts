@@ -38,7 +38,7 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
     }
     dummyAPI() {
         of(DUMMY_steamData)
-            .pipe(delay(1000 * 4))
+            .pipe(delay(1000 * 0.3))
             .subscribe((r) => {
                 this.myGameList = r
                 this._updateCharts()
@@ -95,15 +95,17 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
                 },
             ],
         }
+        console.group('遊戲清單')
         console.log(this.myGameList)
+        console.groupEnd()
         this.focusGame = this.myGameList[0]
         this.spinner.hide()
         this.isAPIFinished = true
         // this.chart2?.update()
     }
     async loopMystWord() {
-        const base = '掌握'
-        const list = ['時間', '自由']
+        const base = '遊戲推薦'
+        const list = ['施工中', '還在做！']
         this.MystWord = [...base]
         const pushWord = (w: string) => {
             return firstValueFrom(of(this.MystWord.push(w)).pipe(delay(500)))
