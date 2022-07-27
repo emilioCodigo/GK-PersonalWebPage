@@ -39,7 +39,9 @@ function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
     styleUrls: ['./home-chart-board.component.scss'],
 })
 export class HomeChartBoardComponent implements OnInit {
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        console.log(this.focusGame)
+    }
     @Input() focusGame!: iSteamGameInfo
     @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>
     @ViewChild('thumbnailRef') thumbnailRef!: ElementRef<HTMLElement>
@@ -48,16 +50,24 @@ export class HomeChartBoardComponent implements OnInit {
     thumbnailSlider!: KeenSliderInstance
 
     ngAfterViewInit() {
-        const thumbNum = Math.floor($('.__right')[0].scrollWidth / 115)
-        console.log(thumbNum)
         this.slider = new KeenSlider(this.sliderRef.nativeElement)
         this.thumbnailSlider = new KeenSlider(
             this.thumbnailRef.nativeElement,
             {
                 initial: 0,
                 slides: {
-                    perView: thumbNum,
-                    spacing: 10,
+                    perView: Math.floor($('.__right')[0].scrollWidth / 115),
+                },
+                breakpoints: {
+                    '(max-width: 762px)': {
+                        slides: { perView: 4, spacing: 5 },
+                    },
+                    '(max-width: 576px)': {
+                        slides: { perView: 3, spacing: 5 },
+                    },
+                    '(max-width: 430px)': {
+                        slides: { perView: 2, spacing: 5 },
+                    },
                 },
             },
             [ThumbnailPlugin(this.slider)]

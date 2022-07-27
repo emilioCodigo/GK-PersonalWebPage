@@ -1,5 +1,26 @@
 <div [style]="{ backgroundImage: 'url(' + focusGame.background + ')' }" #chartDiv class="chart p-4">
     <div class="__right">
+        <div class="badge-box">
+            <drag-scroll class="scroll-hide">
+                <ng-container *ngFor="let cate of focusGame.categories">
+                    <span class="badge bg-steam-green w-fit me-2 mb-2 fw-normal">{{
+                        cate.description
+                    }}</span>
+                </ng-container>
+            </drag-scroll>
+        </div>
+        <div>
+            <h5 class="mb-3">
+                {{ focusGame.name }}
+                <div class="d-inline-block">
+                    <span class="lil">媒體評分</span> {{ focusGame.metacritic!.score }} &nbsp;
+                </div>
+                <div class="d-inline-block">
+                    <span class="lil">遊玩時數</span> {{ focusGame.playTime_hour }} 小時
+                </div>
+            </h5>
+        </div>
+        <span></span>
         <div class="keen-slider" #sliderRef>
             <ng-container *ngFor="let screenshot of focusGame.screenshots">
                 <div class="keen-slider__slide">
@@ -7,7 +28,7 @@
                 </div>
             </ng-container>
         </div>
-        <div class="keen-slider thumbnail-b" #thumbnailRef>
+        <div class="keen-slider thumbnail-box" #thumbnailRef>
             <ng-container *ngFor="let screenshot of focusGame.screenshots">
                 <div class="keen-slider__slide">
                     <img class="thumbnail-img" src="{{ screenshot.path_thumbnail }}" alt="" />
@@ -15,6 +36,7 @@
             </ng-container>
         </div>
     </div>
+    <div class="__left"></div>
 </div>
 
 <!-- <div class="keen-slider" #sliderRef>

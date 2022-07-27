@@ -32,3 +32,12 @@ body {
         display: none;
     }
 }
+.scroll-hide {
+    .drag-scroll-content {
+        overflow: hidden;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

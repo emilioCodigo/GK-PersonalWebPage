@@ -9,6 +9,13 @@
     }
 
     position: relative;
+    @include bk_max($lg) {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        > * {
+            padding: 0rem;
+        }
+    }
 }
 
 :host {
@@ -27,7 +34,7 @@
 .total-box {
     gap: 2rem;
 
-    margin-top: 50px;
+    margin-top: 80px;
     display: flex;
     @include bk_max($xxl) {
         flex-direction: column;

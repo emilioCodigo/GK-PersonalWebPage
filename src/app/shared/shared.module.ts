@@ -10,12 +10,10 @@ import { ContentModule } from './content/content.module'
 import { DirectivesModule } from './directives/directives.module'
 import { MatModule } from './mat.module'
 import { PipeModule } from './pipe/pipe.module'
-import { NgxGalleryModule } from '@kolkov/ngx-gallery'
 @NgModule({
     declarations: [],
     imports: [CommonModule],
     exports: [
-        NgxGalleryModule,
         DragScrollModule,
         PerfectScrollbarModule,
         NgxSpinnerModule,
