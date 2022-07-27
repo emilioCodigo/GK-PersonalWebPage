@@ -20,7 +20,9 @@ body {
 .home-chart-scroll .drag-scroll-content {
     height: 100% !important;
     display: flex !important;
+    width: 100% !important;
     flex-direction: column !important;
+    scrollbar-width: none;
     @include bk_max($xxl) {
         flex-direction: row !important;
         gap: 2rem;

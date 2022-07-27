@@ -1,8 +1,7 @@
 import { iSteamGameInfo } from '@app/model/steamGame.model'
-import * as $ from 'jquery'
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core'
 import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from 'keen-slider'
-
+import * as $ from 'jquery'
 function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
     return (slider) => {
         function removeActive() {
@@ -34,15 +33,14 @@ function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
         })
     }
 }
-
 @Component({
     selector: 'app-home-chart-board',
     templateUrl: './home-chart-board.component.html',
     styleUrls: ['./home-chart-board.component.scss'],
 })
 export class HomeChartBoardComponent implements OnInit {
-    @Input() focusGame!: iSteamGameInfo
     ngOnInit(): void {}
+    @Input() focusGame!: iSteamGameInfo
     @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>
     @ViewChild('thumbnailRef') thumbnailRef!: ElementRef<HTMLElement>
 
@@ -50,14 +48,16 @@ export class HomeChartBoardComponent implements OnInit {
     thumbnailSlider!: KeenSliderInstance
 
     ngAfterViewInit() {
+        const thumbNum = Math.floor($('.__right')[0].scrollWidth / 115)
+        console.log(thumbNum)
         this.slider = new KeenSlider(this.sliderRef.nativeElement)
         this.thumbnailSlider = new KeenSlider(
             this.thumbnailRef.nativeElement,
             {
                 initial: 0,
                 slides: {
-                    perView: 'auto',
-                    spacing: 0,
+                    perView: thumbNum,
+                    spacing: 10,
                 },
             },
             [ThumbnailPlugin(this.slider)]

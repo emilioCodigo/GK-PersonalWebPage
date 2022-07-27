@@ -1,32 +1,48 @@
+@import '/src/assets/scss/c.variable';
 .chart {
-    height: 100%;
+    height: calc(100vh - 90px - 90px);
+    min-height: 600px;
+    //
     transition: all 1s;
     background-color: rgba($color: #000000, $alpha: 0.1);
-    // display: flex;
-    // flex-direction: column;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    .header_img {
-        margin-bottom: 1rem;
-        width: 220px;
-        max-width: 100%;
+    //
+    display: flex;
+    gap: 1rem;
+    .__left {
+        min-width: 220px;
+        .header_img {
+            margin-bottom: 1rem;
+            width: 220px;
+            max-width: 100%;
+        }
+        @include bk_max($xxl) {
+            min-width: none;
+        }
     }
-    .full-img {
+    .__right {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-            aspect-ratio: 1.8/1;
-            padding: 1rem;
-            width: 50%;
+        justify-content: flex-end;
+        flex-direction: column;
+        width: calc(100% - 220px - 1.5rem);
+        @include bk_max($xxl) {
+            width: 100%;
         }
     }
-    .thumbnail {
-        img {
-            aspect-ratio: 1.8/1;
-            width: 80px;
-        }
-    }
+}
+.fill-img {
+    aspect-ratio: 1.8/1;
+    width: 100%;
+}
+.thumbnail-box {
+    margin-top: 8px;
+}
+.thumbnail-img {
+    cursor: pointer;
+
+    width: 115px;
+    min-width: 115px;
+    height: 65px;
 }

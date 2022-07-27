@@ -146,7 +146,7 @@
     "ora" "5.4.1"
     "rxjs" "6.6.7"
 
-"@angular/animations@^14.0.0", "@angular/animations@^14.0.0 || ^15.0.0", "@angular/animations@14.0.6":
+"@angular/animations@^14.0.0", "@angular/animations@^14.0.0 || ^15.0.0", "@angular/animations@>=13.0.0 <14", "@angular/animations@14.0.6":
   "integrity" "sha512-l363hFgj5Dxw6WKZkJRd77izOznCqJVrWhxfO9ERG0ShVUb/3WB9RSOUCVltDrTY5sFK+cw+slQYGH6AXgvMVQ=="
   "resolved" "https://registry.npmjs.org/@angular/animations/-/animations-14.0.6.tgz"
   "version" "14.0.6"
@@ -188,7 +188,7 @@
     "uuid" "8.3.2"
     "yargs" "17.4.1"
 
-"@angular/common@^14.0.0", "@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ~13.0.0", "@angular/common@>=14.0.0", "@angular/common@>=6.0.0", "@angular/common@>=9.0.0", "@angular/common@14.0.6":
+"@angular/common@^14.0.0", "@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ~13.0.0", "@angular/common@>=13.0.0 <14", "@angular/common@>=14.0.0", "@angular/common@>=6.0.0", "@angular/common@>=9.0.0", "@angular/common@14.0.6":
   "integrity" "sha512-AynjE7OOEfrdKmS3nu00tkf4g66cx97T6qhfaTvc3hKi45MreBcJkIMcSowF24peygvUN41htMJuq3WQLu92iQ=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.0.6.tgz"
   "version" "14.0.6"
@@ -218,7 +218,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^14.0.0", "@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ~13.0.0", "@angular/core@>=14.0.0", "@angular/core@>=6.0.0", "@angular/core@>=9.0.0", "@angular/core@14.0.6":
+"@angular/core@^14.0.0", "@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ~13.0.0", "@angular/core@>=13.0.0 <14", "@angular/core@>=14.0.0", "@angular/core@>=6.0.0", "@angular/core@>=9.0.0", "@angular/core@14.0.6":
   "integrity" "sha512-hyQ3s9Yrm3ejhumgAC9ENhMFmvmPlJkk1tEOjruyoiHwK4EOaDpI+GCNQIBUB1Z3B/QLMlgZeMXrULQztjSQwg=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.0.6.tgz"
   "version" "14.0.6"
@@ -1513,6 +1513,13 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
+
+"@kolkov/ngx-gallery@^2.0.1":
+  "integrity" "sha512-mTigRy9Ha7bqCF/+GNKeW2Oe8ZILuM5GGMw+ZbvTQWq3X5hngeFFgv8GFG49Py3biX67kb0NhqCP+msLe4wbXQ=="
+  "resolved" "https://registry.npmjs.org/@kolkov/ngx-gallery/-/ngx-gallery-2.0.1.tgz"
+  "version" "2.0.1"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "@leichtgewicht/ip-codec@^2.0.1":
   "integrity" "sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A=="

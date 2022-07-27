@@ -2,8 +2,6 @@
 
 .container {
     min-height: 100vh;
-    height: 100vh;
-    max-height: 100vh;
     position: relative;
     z-index: 1;
     > * {
@@ -28,17 +26,19 @@
 }
 .total-box {
     gap: 2rem;
-    height: calc(100% - 90px);
-    max-height: calc(100% - 90px);
+
     margin-top: 50px;
     display: flex;
     @include bk_max($xxl) {
         flex-direction: column;
     }
 }
-
+$steam_header_photo_height: 102px;
+$steam_header_photo_weight: 220px;
 .gameList-box {
-    width: 250px;
+    height: calc(100vh - 90px - 90px);
+    min-width: $steam_header_photo_weight;
+    width: $steam_header_photo_weight;
     transition: all 0.5s;
     overflow: hidden;
     display: flex;
@@ -46,7 +46,7 @@
     gap: 1rem;
     @include bk_max($xxl) {
         width: auto;
-        height: 130px;
+        height: $steam_header_photo_height;
         flex-direction: row;
     }
     .item_box {
@@ -64,10 +64,10 @@
             margin-top: 0px;
         }
         .img-box {
-            height: 100%;
+            height: $steam_header_photo_height;
             img {
-                width: 220px;
-                height: 100%;
+                width: steam_header_photo_weight;
+                height: $steam_header_photo_height;
             }
         }
     }
@@ -82,4 +82,7 @@
     color: #fff;
     text-shadow: 0 0 7px $blue, 0 0 10px $blue, 0 0 21px $blue, 0 0 42px $blue, 0 0 82px $blue,
         0 0 92px $blue, 0 0 102px $blue, 0 0 151px $blue;
+}
+.drag-scroll-content {
+    width: auto;
 }
