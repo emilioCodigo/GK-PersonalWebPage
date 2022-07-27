@@ -95,9 +95,7 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
                 },
             ],
         }
-        console.group('遊戲清單')
-        console.log(this.myGameList)
-        console.groupEnd()
+
         this.focusGame = this.myGameList[0]
         this.spinner.hide()
         this.isAPIFinished = true

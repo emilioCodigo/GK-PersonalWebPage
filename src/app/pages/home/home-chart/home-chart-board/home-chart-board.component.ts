@@ -42,7 +42,20 @@ export class HomeChartBoardComponent implements OnInit {
     ngOnInit(): void {
         console.log(this.focusGame)
     }
-    @Input() focusGame!: iSteamGameInfo
+
+    private _focusGame!: iSteamGameInfo
+    @Input() get focusGame(): iSteamGameInfo {
+        return this._focusGame
+    }
+    set focusGame(value: iSteamGameInfo) {
+        if (this.slider) {
+            this.slider.update()
+        }
+        if (this.thumbnailSlider) {
+            this.thumbnailSlider.update()
+        }
+        this._focusGame = value
+    }
     @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>
     @ViewChild('thumbnailRef') thumbnailRef!: ElementRef<HTMLElement>
 
@@ -54,6 +67,31 @@ export class HomeChartBoardComponent implements OnInit {
         this.thumbnailSlider = new KeenSlider(
             this.thumbnailRef.nativeElement,
             {
+                updated: () => {
+                    console.log('updated')
+                },
+                animationEnded: () => {
+                    console.log('animationEnded')
+                },
+                created: () => {
+                    console.log('created')
+                },
+                destroyed: () => {
+                    console.log('destroyed')
+                },
+                detailsChanged: () => {
+                    console.log('detailsChanged')
+                },
+                beforeOptionsChanged: () => {
+                    console.log('beforeOptionsChanged')
+                },
+                optionsChanged: () => {
+                    console.log('optionsChanged')
+                },
+                slideChanged: () => {
+                    console.log('slideChanged')
+                },
+
                 initial: 0,
                 slides: {
                     perView: Math.floor($('.__right')[0].scrollWidth / 115),
