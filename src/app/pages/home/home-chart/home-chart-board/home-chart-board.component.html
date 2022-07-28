@@ -1,10 +1,10 @@
-<ng-container *ngIf="isLoad">
+<ng-container>
     <div
         [style]="{ backgroundImage: 'url(' + focusGame.background + ')' }"
         #chartDiv
         class="chart p-3">
         <div class="__right">
-            <div class="badge-box">
+            <div class="badge-box box1">
                 <drag-scroll class="scroll-hide">
                     <ng-container *ngFor="let cate of focusGame.categories">
                         <span class="badge bg-steam-green w-fit me-2 mb-2 fw-normal">{{
@@ -13,7 +13,7 @@
                     </ng-container>
                 </drag-scroll>
             </div>
-            <div>
+            <div class="box2">
                 <h5 class="mb-3 d-flex justify-content-between flex-column flex-sm-row">
                     <div>{{ focusGame.name }}</div>
                     <div>
@@ -29,21 +29,8 @@
                     </div>
                 </h5>
             </div>
-            <span></span>
-            <div class="keen-slider" #sliderRef>
-                <ng-container *ngFor="let screenshot of focusGame.screenshots">
-                    <div class="keen-slider__slide">
-                        <img class="fill-img" src="{{ screenshot.path_full }}" alt="" />
-                    </div>
-                </ng-container>
-            </div>
-            <div class="keen-slider thumbnail-box" #thumbnailRef>
-                <ng-container *ngFor="let screenshot of focusGame.screenshots">
-                    <div class="keen-slider__slide">
-                        <img class="thumbnail-img" src="{{ screenshot.path_thumbnail }}" alt="" />
-                    </div>
-                </ng-container>
-            </div>
+
+            <ng-template #dynamic></ng-template>
         </div>
     </div>
 </ng-container>

@@ -12,7 +12,8 @@ import { HomeTwoColorComponent } from './home-two-color/home-two-color.component
 import { HomeChartComponent } from './home-chart/home-chart.component'
 import { HomeIntroRotateDirective } from './home-intro/directive/home-intro-rotate.directive'
 import { HomeFooterGreenDirective } from './home-footer/directive/home-footer-green.directive'
-import { HomeChartBoardComponent } from './home-chart/home-chart-board/home-chart-board.component'
+import { HomeChartBoardComponent } from './home-chart/home-chart-board/home-chart-board.component';
+import { HomeChartKeenComponent } from './home-chart/home-chart-keen/home-chart-keen.component'
 
 const routes: Routes = [{ path: '', component: HomeMainComponent }]
 @NgModule({
@@ -28,6 +29,7 @@ const routes: Routes = [{ path: '', component: HomeMainComponent }]
         HomeIntroLinkIconHoverDirective,
         HomeIntroRotateDirective,
         HomeFooterGreenDirective,
+        HomeChartKeenComponent,
     ],
     imports: [CommonModule, SharedModule, RouterModule.forChild(routes)],
     exports: [RouterModule],

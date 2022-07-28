@@ -1,0 +1,14 @@
+<div class="keen-slider" #sliderRef>
+    <ng-container *ngFor="let screenshot of focusGame.screenshots">
+        <div class="keen-slider__slide">
+            <img class="fill-img" src="{{ screenshot.path_full }}" alt="" />
+        </div>
+    </ng-container>
+</div>
+<div class="keen-slider thumbnail-box" #thumbnailRef>
+    <ng-container *ngFor="let screenshot of focusGame.screenshots">
+        <div class="keen-slider__slide">
+            <img class="thumbnail-img" src="{{ screenshot.path_thumbnail }}" alt="" />
+        </div>
+    </ng-container>
+</div>

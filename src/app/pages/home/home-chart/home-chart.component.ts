@@ -32,8 +32,8 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
     constructor(private steamServ: SteamPersonalService, private spinner: NgxSpinnerService) {
         this.spinner.show()
         inject(NgwWowService).init()
-        // this.dummyAPI()
-        this.fetchAPI()
+        this.dummyAPI()
+        // this.fetchAPI()
         this.loopMystWord()
     }
     dummyAPI() {

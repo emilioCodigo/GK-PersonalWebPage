@@ -32,7 +32,7 @@
 }
 .total-box {
     gap: 2rem;
-    max-height: calc(110px * 6);
+    max-height: calc(110px * 7);
     height: 100vh;
     display: flex;
     @include bk_max($xxl) {
@@ -94,7 +94,4 @@ $steam_header_photo_weight: 220px;
 }
 .drag-scroll-content {
     width: auto;
-}
-.min-h-100vw {
-    min-height: 100vh;
 }

@@ -46,7 +46,9 @@ article::before {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    min-height: 100vh;
     @include bk_max($sm) {
+        min-height: 0;
         background-attachment: local;
         background-image: url('/assets/image/bg/ast-sm.jpg');
     }
