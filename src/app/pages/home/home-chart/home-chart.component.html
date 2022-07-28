@@ -27,14 +27,16 @@
     </ng-container>
 </div>
 <ng-template #loading>
-    <ngx-spinner
-        [bdColor]="'none'"
-        size="medium"
-        color="#fff"
-        type="triangle-skew-spin"
-        [fullScreen]="false"
-        ><p style="color: white">正在訪問Steam...</p></ngx-spinner
-    >
+    <div class="min-h-100vw">
+        <ngx-spinner
+            [bdColor]="'none'"
+            size="medium"
+            color="#fff"
+            type="triangle-skew-spin"
+            [fullScreen]="false"
+            ><p style="color: white">正在訪問Steam...</p></ngx-spinner
+        >
+    </div>
 </ng-template>
 
 <div hidden>

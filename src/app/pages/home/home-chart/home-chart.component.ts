@@ -32,8 +32,8 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
     constructor(private steamServ: SteamPersonalService, private spinner: NgxSpinnerService) {
         this.spinner.show()
         inject(NgwWowService).init()
-        this.dummyAPI()
-        // this.fetchAPI()
+        // this.dummyAPI()
+        this.fetchAPI()
         this.loopMystWord()
     }
     dummyAPI() {
@@ -74,7 +74,9 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
                         }
                         this.myGameList.push(tempGame)
                     })
-                    .catch(() => {})
+                    .catch(() => {
+                        // this.myGameList = DUMMY_steamData
+                    })
             }
             this._updateCharts()
         })
@@ -82,6 +84,8 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
     focusGame!: iSteamGameInfo
 
     _updateCharts() {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        this.myGameList.sort((a, b) => b.metacritic!.score - a.metacritic!.score)
         const playTime_hourArray = this.myGameList.map((e) => e.playTime_hour || 0)
         this.barChartData = {
             labels: this.myGameList.map((e) => e.name || ''),
@@ -103,7 +107,7 @@ export class HomeChartComponent implements OnInit, AfterViewInit {
     }
     async loopMystWord() {
         const base = '遊戲推薦'
-        const list = ['施工中', '還在做！']
+        const list = ['施工中', '未完成']
         this.MystWord = [...base]
         const pushWord = (w: string) => {
             return firstValueFrom(of(this.MystWord.push(w)).pipe(delay(500)))
