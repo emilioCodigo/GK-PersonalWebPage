@@ -3,11 +3,11 @@
         <span class="neonRedText">{{ MystWord.join('') }}</span>
     </h1>
 </div>
-<div class="container" [style]="{ paddingTop: layout.section1MarginTop }">
+<div class="container">
     <ng-container *ngIf="isAPIFinished; else loading">
         <div class="total-box">
             <ng-container *ngIf="focusGame">
-                <div data-aos-delay="500" data-aos="zoom-in" class="flex-1 w-100 overflow-hidden">
+                <div data-aos-delay="0" data-aos="zoom-in" class="flex-1 w-100 overflow-hidden">
                     <app-home-chart-board [focusGame]="focusGame"></app-home-chart-board>
                 </div>
             </ng-container>

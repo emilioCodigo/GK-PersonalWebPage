@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-this-alias */
 import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@angular/core'
 import anime from 'animejs'
 import { Subject, take } from 'rxjs'
@@ -7,13 +8,14 @@ import { ColorEnum } from './../../../../constant/enum/color.enum'
     selector: '[appHomeFooterGreen]',
 })
 export class HomeFooterGreenDirective implements OnInit {
-    colorArray = [['#f00', ColorEnum['orange']]]
+    colorArray = ['bug', 'bug']
+    // colorArray = [[ColorEnum['steamBg'], ColorEnum['steamDeepBlue']]]
     isDoing = false
     leaveEventQueue: Array<() => void> = []
-
+    finalPoint = '100vw'
     // 父滑鼠移動事件輸入
-    lastMousePercent = '50vw'
-    _mousePercent = '50vw'
+    lastMousePercent = this.finalPoint
+    _mousePercent = this.finalPoint
     get mousePercent() {
         return this._mousePercent
     }
@@ -30,7 +32,7 @@ export class HomeFooterGreenDirective implements OnInit {
                     anime({
                         backgroundColor: this.colorArray,
                         width: function () {
-                            return [self.lastMousePercent, '50vw']
+                            return [self.lastMousePercent, self.finalPoint]
                         },
                         targets: '._anime-footer-green',
                         direction: 'normal',
@@ -39,7 +41,7 @@ export class HomeFooterGreenDirective implements OnInit {
                     }).finished.then(() => {
                         this.isDoing = false
                         this.leaveEventQueue.shift()
-                        self.lastMousePercent = '50vw'
+                        self.lastMousePercent = this.finalPoint
                     })
                 }, 0)
             }
@@ -55,6 +57,7 @@ export class HomeFooterGreenDirective implements OnInit {
             this.isDoing = true
             setTimeout(() => {
                 this._mousePercent = val
+
                 anime({
                     backgroundColor: this.colorArray,
                     width: function () {
@@ -98,10 +101,11 @@ export class HomeFooterGreenDirective implements OnInit {
                 this.r2.addClass(this.el.nativeElement, '_anime-footer-green')
                 this.isDoing = true
                 setTimeout(() => {
+                    const self = this
                     anime({
                         backgroundColor: this.colorArray,
                         width: function () {
-                            return ['0vw', '50vw']
+                            return ['0vw', self.finalPoint]
                         },
                         targets: '._anime-footer-green',
                         direction: 'normal',
@@ -116,7 +120,7 @@ export class HomeFooterGreenDirective implements OnInit {
                         } else {
                             this.isDoing = false
                         }
-                        this.lastMousePercent = '50vw'
+                        this.lastMousePercent = this.finalPoint
                     })
                 }, 0)
             })

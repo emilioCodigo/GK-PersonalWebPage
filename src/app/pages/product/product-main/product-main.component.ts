@@ -1,22 +1,10 @@
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { iSteamGameInfo } from '@app/model/steamGame.model'
-import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core'
-import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from 'keen-slider'
 import * as $ from 'jquery'
+import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from 'keen-slider'
+import { DUMMY_steamData } from './../../../constant/dummy/steam.data'
 function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
     return (slider) => {
-        const observer = new MutationObserver(function (mutations) {
-            mutations.forEach(function (mutation) {
-                slider.update()
-                addClickEvents()
-            })
-        })
-
-        slider.on('created', () => {
-            observer.observe(slider.container, { childList: true })
-        })
-        slider.on('destroyed', () => {
-            observer.disconnect()
-        })
         function removeActive() {
             slider.slides.forEach((slide) => {
                 slide.classList.remove('active')
@@ -46,8 +34,9 @@ function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
         })
     }
 }
-function MutationPlugin(): KeenSliderPlugin {
+function MutationPlugin(slider: KeenSliderInstance): KeenSliderPlugin {
     return (slider) => {
+        console.log('hi')
         const observer = new MutationObserver(function (mutations) {
             mutations.forEach(function (mutation) {
                 slider.update()
@@ -63,26 +52,25 @@ function MutationPlugin(): KeenSliderPlugin {
         })
     }
 }
-
 @Component({
-    selector: 'app-home-chart-board',
-    templateUrl: './home-chart-board.component.html',
-    styleUrls: ['./home-chart-board.component.scss'],
+    selector: 'app-product-main',
+    templateUrl: './product-main.component.html',
+    styleUrls: ['./product-main.component.scss'],
 })
-export class HomeChartBoardComponent implements OnInit {
-    ngOnInit(): void {}
-
-    private _focusGame!: iSteamGameInfo
-    @Input() get focusGame(): iSteamGameInfo {
+export class ProductMainComponent implements OnInit {
+    num = 6
+    ngOnInit(): void {
+        this.focusGame = DUMMY_steamData[this.num]
+    }
+    DUMMY_steamData = DUMMY_steamData
+    private _focusGame!: iSteamGameInfo | null
+    get focusGame(): iSteamGameInfo | null {
         return this._focusGame
     }
-    set focusGame(value: iSteamGameInfo) {
+    set focusGame(value: iSteamGameInfo | null) {
         this.isLoad = false
         this._focusGame = value
         this.isLoad = true
-        if (this.slider) {
-            this.updateKeen()
-        }
     }
     @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>
     @ViewChild('thumbnailRef') thumbnailRef!: ElementRef<HTMLElement>
@@ -92,29 +80,22 @@ export class HomeChartBoardComponent implements OnInit {
 
     ngAfterViewInit() {
         this.updateKeen()
+        this.slider.options.slides = { perView: 1 }
+    }
+    add() {
+        // this.slider.destroy()
+        this.num++
+
+        this.focusGame = DUMMY_steamData[this.num]
+        this.updateKeen()
     }
     updateKeen = () => {
-        this.slider = new KeenSlider(this.sliderRef.nativeElement, {}, [MutationPlugin()])
-        this.thumbnailSlider = new KeenSlider(
-            this.thumbnailRef.nativeElement,
-            {
-                renderMode: 'performance',
-                initial: 0,
-                slides: { spacing: 4, perView: Math.floor($('.__right')[0].scrollWidth / 115) },
-                breakpoints: {
-                    '(max-width: 762px)': {
-                        slides: { perView: 4, spacing: 4 },
-                    },
-                    '(max-width: 476px)': {
-                        slides: { perView: 3, spacing: 4 },
-                    },
-                    '(max-width: 430px)': {
-                        slides: { perView: 2, spacing: 4 },
-                    },
-                },
-            },
-            [ThumbnailPlugin(this.slider)]
-        )
+        this.slider = new KeenSlider(this.sliderRef.nativeElement, { slides: { perView: 1 } })
+        this.thumbnailSlider = new KeenSlider(this.thumbnailRef.nativeElement, {}, [
+            ThumbnailPlugin(this.slider),
+            MutationPlugin(this.slider),
+        ])
+        this.slider.update()
     }
 
     ngOnDestroy() {

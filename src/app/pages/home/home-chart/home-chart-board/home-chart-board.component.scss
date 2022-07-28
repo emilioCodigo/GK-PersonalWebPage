@@ -1,8 +1,7 @@
 @import '/src/assets/scss/c.variable';
 .chart {
-    opacity: 0.93;
+    opacity: 0.95;
     height: 100%;
-    height: calc(100vh - 90px - 90px);
     // min-height: 600px;
     //
     transition: all 1s;
@@ -34,7 +33,8 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        width: calc(100% - 1.5rem);
+        width: 100%;
+        // width: calc(100% - 1.5rem);
         @include bk_max($lg) {
             width: 100%;
         }
@@ -48,11 +48,11 @@
 }
 .thumbnail-img {
     cursor: pointer;
-
+    aspect-ratio: 1.78/1;
     // width: 115px;
     width: 100%;
     min-width: 115px;
-    height: 65px;
+    // height: 65px;
 }
 .badge-box {
     display: block;

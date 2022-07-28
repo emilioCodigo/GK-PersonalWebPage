@@ -26,7 +26,13 @@
         background-color: rgba($color: yellow, $alpha: 1);
         width: calc(3rem * 20);
         max-width: 100%;
-        h1 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            display: flex;
+            align-items: center;
             margin: 0 2rem;
             padding: 1rem 0;
             font-weight: 800;
