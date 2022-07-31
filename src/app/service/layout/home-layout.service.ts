@@ -12,22 +12,9 @@ export class HomeLayoutService {
         return this.HomeLayoutSubject.asObservable()
     }
     setHomeLayout(val: Partial<iHomeLayout>): void {
-        const temp = { ...this.HomeLayoutSubject.getValue(), ...val }
-        this.HomeLayoutSubject.next(temp)
+        this.HomeLayoutSubject.next({ ...this.HomeLayoutSubject.getValue(), ...val })
     }
-    constructor() {
-        // this._checkValue()
-        // this._scroll()
-    }
-    // _scroll() {
-    //     window.addEventListener('scroll', () => {
-    //         this._checkValue()
-    //     })
-    // }
-    // _checkValue() {
-    //     // const scrollTop = document.documentElement.scrollTop
-    //     // const dfHeaderHeight = Number(defaultHomeLayout.headerHeight?.toString().replace('px', ''))
-    // }
+    constructor() {}
 }
 
 const defaultHomeLayout: iHomeLayout = {

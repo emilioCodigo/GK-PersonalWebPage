@@ -1,21 +1,20 @@
-import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
-import { iSteamGameInfo } from '@app/model/steamGame.model'
-import { Observable } from 'rxjs'
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { iSteamGameInfo } from '@app/model/steamGame.model';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class SteamPersonalService {
-    private rootUrl = 'https://steam-game-own-server.herokuapp.com'
-    // private rootUrl = 'http://localhost:5000'
-    private url = this.rootUrl + '/own/76561198021631509'
-    private gameBaseUrl = this.rootUrl + '/game/'
-    constructor(private http: HttpClient) {}
-    getMyGames() {
-        return this.http.get<iSteamGameInfo[]>(this.url)
-    }
-    getGameInfo(id: number) {
-        return this.http.get<iSteamGameInfo>(`${this.gameBaseUrl}${id}`)
-    }
+  private rootUrl = 'https://steam-game-own-server.herokuapp.com';
+  // private rootUrl = 'http://localhost:5000'
+  private url = this.rootUrl + '/own/76561198021631509';
+  private gameBaseUrl = this.rootUrl + '/game/';
+  constructor(private http: HttpClient) {}
+  getMyGames() {
+    return this.http.get<iSteamGameInfo[]>(this.url);
+  }
+  getGameInfo(id: number) {
+    return this.http.get<iSteamGameInfo>(`${this.gameBaseUrl}${id}`);
+  }
 }
