@@ -15,7 +15,7 @@ describe('HomeLayoutService', () => {
   it('#getHomeLayout$', (done: DoneFn) => {
     service.getHomeLayout$().subscribe((val) => {
       expect(val.headerHeight).toEqual('44px');
-      done();
     });
+    done();
   });
 });

@@ -6,7 +6,6 @@ import {
   inject,
   Input,
   OnInit,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { iHomeLayout } from '@app/model/layout.model';
