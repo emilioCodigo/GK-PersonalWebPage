@@ -1,28 +1,31 @@
-<!-- [style]="{ paddingTop: layout.section1MarginTop }" -->
 <div class="grid-box">
-    <div class="color-1-box wow fadeIn">
-        <div class="img-box"><img src="assets/image/ck3/1-none.jpg" alt="" /></div>
+  <div class="color-1-box wow fadeIn">
+    <div class="img-box"><img src="assets/image/ck3/1-none.jpg" alt="" /></div>
+  </div>
+  <div class="color-2-box wow fadeIn">
+    <div class="img-box"><img src="assets/image/ck3/1-none.jpg" alt="" /></div>
+    <div class="text-box px-3">
+      <h3 data-wow-delay="0.5s" class="wow fadeInRight">{{ part1.title }}</h3>
+      <div data-wow-delay="0.5s" class="wow fadeInRight">
+        <p [innerHTML]="part1.text"></p>
+      </div>
     </div>
-    <div class="color-2-box wow fadeIn">
-        <div class="img-box"><img src="assets/image/ck3/1-none.jpg" alt="" /></div>
-        <div class="text-box px-3">
-            <h3 data-wow-delay="0.5s" class="wow fadeInRight">{{ part1.title }}</h3>
-            <div data-wow-delay="0.5s" class="wow fadeInRight">
-                <p [innerHTML]="part1.text"></p>
-            </div>
-        </div>
+  </div>
+  <div class="color-2-box wow fadeIn">
+    <div class="img-box">
+      <img src="assets/image/bg/edm-festival1.jpg" alt="" />
     </div>
-    <div class="color-2-box wow fadeIn">
-        <div class="img-box"><img src="assets/image/bg/edm-festival1.jpg" alt="" /></div>
-        <div class="text-box px-3">
-            <h3 data-wow-delay="0.5s" class="wow fadeInLeft">{{ part2.title }}</h3>
-            <div data-wow-delay="0.5s" class="wow fadeInLeft">
-                <p [innerHTML]="part2.text"></p>
-            </div>
-        </div>
+    <div class="text-box px-3">
+      <h3 data-wow-delay="0.5s" class="wow fadeInLeft">{{ part2.title }}</h3>
+      <div data-wow-delay="0.5s" class="wow fadeInLeft">
+        <p [innerHTML]="part2.text"></p>
+      </div>
     </div>
+  </div>
 
-    <div class="color-1-box wow fadeIn">
-        <div class="img-box"><img src="assets/image/bg/edm-festival1.jpg" alt="" /></div>
+  <div class="color-1-box wow fadeIn">
+    <div class="img-box">
+      <img src="assets/image/bg/edm-festival1.jpg" alt="" />
     </div>
+  </div>
 </div>

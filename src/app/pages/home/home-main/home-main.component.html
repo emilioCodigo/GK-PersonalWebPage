@@ -1,21 +1,22 @@
 <app-home-header [layout]="layout"></app-home-header>
 <div>
-    <section
-        id="id-home-intro"
-        class="mh-100vh bg-dark overflow-hidden"
-        [style]="{ paddingTop: layout.section1MarginTop }">
-        <article></article>
-        <app-home-intro></app-home-intro>
-    </section>
+  <section
+    id="id-home-intro"
+    class="mh-100vh bg-dark overflow-hidden"
+    [style]="{ paddingTop: layout.headerHeight }"
+  >
+    <article></article>
+    <app-home-intro></app-home-intro>
+  </section>
 
-    <section class="mh-100vh bg-steam-deep-blue" id="id-home-two-color">
-        <app-home-two-color [layout]="layout"></app-home-two-color>
-    </section>
+  <section class="mh-100vh bg-steam-deep-blue" id="id-home-two-color">
+    <app-home-two-color [layout]="layout"></app-home-two-color>
+  </section>
 
-    <section id="id-home-steam" class="">
-        <app-home-chart [layout]="layout"></app-home-chart>
-    </section>
-    <section id="id-home-footer" class="mh-50vh __bg-black">
-        <app-home-footer></app-home-footer>
-    </section>
+  <section id="id-home-steam" class="">
+    <app-home-chart [layout]="layout"></app-home-chart>
+  </section>
+  <section id="id-home-footer" class="mh-50vh __bg-black">
+    <app-home-footer></app-home-footer>
+  </section>
 </div>

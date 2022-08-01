@@ -1,55 +1,46 @@
-@import '/src/assets/scss/c.variable';
+@import "/src/assets/scss/c.variable";
 
 .mh-100vh {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 .mh-50vh {
-    min-height: 50vh;
+  min-height: 50vh;
 }
 section {
-    position: relative;
+  position: relative;
 }
-article {
-    display: flex;
-    flex-direction: column;
-    font-size: 3rem;
-    > h1,
-    h2,
-    h3 {
-        width: fit-content;
-    }
-}
+
 article::after,
 article::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: rgba($color: #ffffff, $alpha: 0.6);
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba($color: #ffffff, $alpha: 0.6);
 }
 #id-home-intro {
-    background-image: url('/assets/image/bg/xxl-earth.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    @include bk_max($sm) {
-        background-attachment: local;
-        background-image: url('/assets/image/bg/sm-earth.jpg');
-    }
+  background-image: url("/assets/image/bg/xxl-earth.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @include bk_max($sm) {
+    background-attachment: local;
+    background-image: url("/assets/image/bg/sm-earth.jpg");
+  }
 }
 .__bg-black {
-    background-color: #000000;
+  background-color: #000000;
 }
 #id-home-steam {
-    background-image: url('/assets/image/bg/ast-xxl.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
-    @include bk_max($sm) {
-        min-height: 0;
-        background-attachment: local;
-        background-image: url('/assets/image/bg/ast-sm.jpg');
-    }
+  background-image: url("/assets/image/bg/ast-xxl.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  @include bk_max($sm) {
+    min-height: 0;
+    background-attachment: local;
+    background-image: url("/assets/image/bg/ast-sm.jpg");
+  }
 }
