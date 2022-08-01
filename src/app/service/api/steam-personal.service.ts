@@ -7,7 +7,6 @@ import { iSteamGameInfo } from '@app/model/steamGame.model';
 })
 export class SteamPersonalService {
   private rootUrl = 'https://steam-game-own-server.herokuapp.com';
-  // private rootUrl = 'http://localhost:5000'
   private url = this.rootUrl + '/own/76561198021631509';
   private gameBaseUrl = this.rootUrl + '/game/';
   constructor(private http: HttpClient) {}
