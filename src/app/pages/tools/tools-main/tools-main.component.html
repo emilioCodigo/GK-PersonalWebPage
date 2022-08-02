@@ -1,11 +1,20 @@
 <div class="d-flex">
-  <div class="_aside shadow-lg p-5" [style]="{ width: layout.sideMenuWidth }">
+  <!-- <div class="main-main__aside shadow-lg p-5" [style]="{ width: layout.sideMenuWidth }">
     <app-tools-aside></app-tools-aside>
-  </div>
+  </div> -->
   <main class="w-100 h-100">
-    <header class="shadow-lg py-3">
+    <!-- <header class="shadow-lg py-3">
       <app-tools-header></app-tools-header>
-    </header>
+    </header> -->
+    <div>
+      <app-content-button-box>
+        <app-content-button-green
+          (clickEvent)="redClick()"
+          header
+          #header
+        ></app-content-button-green>
+      </app-content-button-box>
+    </div>
     <section>
       <app-tools-json-to-interface></app-tools-json-to-interface>
     </section>

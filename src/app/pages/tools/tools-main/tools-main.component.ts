@@ -14,6 +14,8 @@ export class ToolsMainComponent implements OnInit {
       this.layout = result;
     });
   }
-
+  redClick() {
+    alert('red');
+  }
   ngOnInit(): void {}
 }
