@@ -20,7 +20,7 @@ describe('ToolsJsonToInterfaceComponent', () => {
   });
   it('textValue change ParseValue', () => {
     component.textValue = JSON.stringify({ list: [{ age: 15 }], name: 'wang' });
-    // fixture.detectChanges();
+    fixture.detectChanges();
     expect(component.ParseValue.length).toBeGreaterThan(0);
   });
 });

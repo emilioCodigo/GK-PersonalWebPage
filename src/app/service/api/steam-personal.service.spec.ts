@@ -20,14 +20,4 @@ describe('SteamPersonalService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  it('getMyGames', () => {
-    service.getMyGames().subscribe((r) => {
-      expect(r).withContext('幹你娘').toEqual([]);
-    });
-    const req = httpController.expectOne({
-      method: 'GET',
-      url: 'https://steam-game-own-server.herokuapp.com/own/76561198021631509',
-    });
-    req.flush([]);
-  });
 });

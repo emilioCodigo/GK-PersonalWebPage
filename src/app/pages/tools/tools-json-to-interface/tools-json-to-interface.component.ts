@@ -12,37 +12,43 @@ export class ToolsJsonToInterfaceComponent implements OnInit {
     return this._textValue;
   }
   set textValue(value) {
-    this.ParseValue = this.jsonToInterface(JSON.parse(value));
+    let jValue = '';
+    try {
+      jValue = JSON.parse(value);
+    } catch (e) {
+      console.warn();
+    }
+    this.ParseValue = this.jsonToInterface(jValue);
     this._textValue = value;
   }
   constructor() {}
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  jsonToInterface(value: any) {
+  jsonToInterface(value: any): string {
     let result = '\n { ';
     let isArrayBool = false;
     Object.entries(value).forEach((e) => {
       if (!isNaN(Number(e[0]))) {
         if (Number(e[0]) == 0) {
           result = '';
-          result = result + this.jsonToInterface(e[1]) + '  , \n';
+          result = result + this.jsonToInterface(e[1]) + '  ,\n';
           isArrayBool = true;
         }
       } else {
         switch (typeof e[1]) {
           case 'number':
-            result += e[0] + ' : ' + 'number' + ' , \n';
+            result += e[0] + ':' + 'number' + ',\n';
             break;
           case 'string':
-            result += e[0] + ' : ' + 'string' + ' , \n';
+            result += e[0] + ':' + 'string' + ',\n';
             break;
           case 'boolean':
-            result += e[0] + ' : ' + 'boolean' + ' , \n';
+            result += e[0] + ':' + 'boolean' + ',\n';
             break;
           default:
             if (Array.isArray(e[1])) {
-              result += e[0] + ' : [ ' + this.jsonToInterface(e[1]) + ' ] , \n';
+              result += e[0] + ':[' + this.jsonToInterface(e[1]) + '],\n';
             } else {
-              result += e[0] + ' : ' + this.jsonToInterface(e[1]) + ' , \n';
+              result += e[0] + ':' + this.jsonToInterface(e[1]) + ',\n';
               break;
             }
         }

@@ -1,6 +1,6 @@
-import { ToolsLayoutService } from './../../../service/layout/tools-layout.service';
 import { Component, OnInit } from '@angular/core';
 import { iToolsLayout } from '@app/model/layout.model';
+import { ToolsLayoutService } from './../../../service/layout/tools-layout.service';
 
 @Component({
   selector: 'app-tools-main',

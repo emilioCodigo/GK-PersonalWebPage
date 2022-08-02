@@ -28,7 +28,4 @@ describe('HomeHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('點擊_logo 回到最上層', () => {
-    // console.log(logoElement);
-  });
 });
