@@ -34,23 +34,28 @@ export class ToolsJsonToInterfaceComponent implements OnInit {
           isArrayBool = true;
         }
       } else {
-        switch (typeof e[1]) {
-          case 'number':
-            result += e[0] + ':' + 'number' + ',\n';
-            break;
-          case 'string':
-            result += e[0] + ':' + 'string' + ',\n';
-            break;
-          case 'boolean':
-            result += e[0] + ':' + 'boolean' + ',\n';
-            break;
-          default:
-            if (Array.isArray(e[1])) {
-              result += e[0] + ':[' + this.jsonToInterface(e[1]) + '],\n';
-            } else {
-              result += e[0] + ':' + this.jsonToInterface(e[1]) + ',\n';
+        if (e[1] === null) {
+          result += e[0] + ':' + 'null' + ',\n';
+        } else {
+          switch (typeof e[1]) {
+            case 'number':
+              result += e[0] + ':' + 'number' + ',\n';
               break;
-            }
+            case 'string':
+              result += e[0] + ':' + 'string' + ',\n';
+              break;
+            case 'boolean':
+              result += e[0] + ':' + 'boolean' + ',\n';
+              break;
+
+            default:
+              if (Array.isArray(e[1])) {
+                result += e[0] + ':[' + this.jsonToInterface(e[1]) + '],\n';
+              } else {
+                result += e[0] + ':' + this.jsonToInterface(e[1]) + ',\n';
+                break;
+              }
+          }
         }
       }
     });

@@ -1,9 +1,6 @@
-section {
+.panel {
   min-height: 100vh;
-}
-._aside {
-  transition: all 0.5s;
-}
-menu {
-  transition: all 0.5s;
+  min-width: 100vw;
+  align-items: stretch;
+  justify-content: stretch;
 }
